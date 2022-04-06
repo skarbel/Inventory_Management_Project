@@ -3,11 +3,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LaptopContainer from './LaptopContainer';
 import TvContainer from './TvContainer';
 import MobilePhoneContainer from './MobilePhoneContainer';
-<<<<<<< HEAD
 import LogInContainer from './LogInContainer';
-=======
 import InventoryContainer from './InventoryContainer';
->>>>>>> origin/develop
 
 
 

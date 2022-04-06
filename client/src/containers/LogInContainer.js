@@ -9,6 +9,8 @@ const LogInContainer = () => {
   let url = "http://localhost:3000/tvs"
 
   const isManager = () => {
+    setManagerMode(true)
+    setUserMode(false)
     window.location.replace = url
   }
     
