@@ -3,15 +3,36 @@ package com.example.InventoryManagement.models;
 import com.example.InventoryManagement.interfaces.IBuy;
 import com.example.InventoryManagement.interfaces.ISell;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 public abstract class Item implements IBuy, ISell {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "model")
     private String model;
+
+    @Column(name = "manufacturer")
     private Manufacturer manufacturer;
+
+    @Column(name = "product_number")
     private String productNumber;
+
+    @Column(name = "category")
     private String category;
+
+    @Column(name = "stock")
     private int stock;
+
+    @Column(name = "buying_price")
     private int buyingPrice;
+
+    @Column(name = "selling_price")
     private int sellingPrice;
 
 
@@ -23,6 +44,9 @@ public abstract class Item implements IBuy, ISell {
         this.stock = stock;
         this.buyingPrice = buyingPrice;
         this.sellingPrice = sellingPrice;
+    }
+
+    public Item() {
     }
 
     public Long getId() {
