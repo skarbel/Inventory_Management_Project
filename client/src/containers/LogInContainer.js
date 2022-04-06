@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import '../Style/LogIn.css'
 
 const LogInContainer = () => {
+
+  const [managerMode, setManagerMode] = useState(null);
+  const [userMode, setUserMode] = useState(null);
+
+  let url = "http://localhost:3000/tvs"
+
+  const isManager = () => {
+    window.location.replace = url
+  }
     
-    return(
+  const isUser = () => {
+    setUserMode(true)
+    setManagerMode(false)
+    window.location.replace = url
+  }
+    
+  return(
         <div className="login-wrapper">
       <h1>Log In</h1>
       <form>
@@ -16,17 +31,18 @@ const LogInContainer = () => {
           <input type="password" />
         </label>
 
-        <label>
+        {/* <label>
            <p>Log in as:</p>
            <select name="userLevel" >
                <option value="">--Please choose an option--</option>
                <option value="Manager">Manager</option>
                <option value="User">User</option>
            </select>
-         </label>
+         </label> */}
 
         <div>
-          <button type="submit">Submit</button>
+          <button onClick={isManager} type="submit">Manager</button>
+          <button onClick={isUser} type="submit">User</button>
         </div>
       </form>
     </div>
