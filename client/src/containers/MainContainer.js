@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LaptopContainer from './LaptopContainer';
 import TvContainer from './TvContainer';
 import MobilePhoneContainer from './MobilePhoneContainer';
+import InventoryContainer from './InventoryContainer';
 
 
 
@@ -17,8 +18,8 @@ const MainContainer = () => {
         <Switch>
           <Route path="/laptops" component={LaptopContainer}/>
           <Route path="/tvs" component={TvContainer}/>
-          <Route path="/mobilePhones" component={MobilePhoneContainer}/>
-        </Switch>
+          <Route path="/mobilephones" component={MobilePhoneContainer}/>
+          <Route path="/inventory" component={InventoryContainer}/>        </Switch>
   
   
         </Fragment>

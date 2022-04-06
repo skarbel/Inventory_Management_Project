@@ -7,11 +7,11 @@ const MobilePhoneContainer = () => {
     const [mobilePhones, setMobilePhones] = useState ([])
 
     useEffect(() => {
-        fatchMobilePhones();
+        fetchMobilePhones();
     },[])
     
 
-    const fatchMobilePhones = () => {
+    const fetchMobilePhones = () => {
         fetch('http://localhost:8080/api/mobilephones')
         .then(response => response.json())
         .then(data => setMobilePhones(data))
