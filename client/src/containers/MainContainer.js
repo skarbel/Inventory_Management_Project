@@ -9,19 +9,15 @@ import InventoryContainer from './InventoryContainer';
 
 const MainContainer = () => {
 
-
-
     return (
         <Router>
-        <Fragment>
-        
+        <Fragment>     
         <Switch>
           <Route path="/laptops" component={LaptopContainer}/>
           <Route path="/tvs" component={TvContainer}/>
           <Route path="/mobilephones" component={MobilePhoneContainer}/>
-          <Route path="/inventory" component={InventoryContainer}/>        </Switch>
-  
-  
+          <Route path="/inventory" component={InventoryContainer}/>        
+        </Switch>
         </Fragment>
         </Router>
       )
