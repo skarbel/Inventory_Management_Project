@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from "react"
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LaptopList from "../components/laptops/LaptopList";
-import MobilePhoneList from "../components/mobilePhones/mobilePhoneList";
+import MobilePhoneList from "../components/mobilePhones/MobilePhoneList";
 import TvList from "../components/tvs/Tvlist";
 
 
@@ -65,12 +65,10 @@ const InventoryContainer = () => {
   })
 
 
-  return(
-
+  return( 
     <Fragment>
       {itemElements}
     </Fragment>
-
   )
 }
 

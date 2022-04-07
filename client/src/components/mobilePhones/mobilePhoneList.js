@@ -1,5 +1,5 @@
 import React from 'react';
-import MobilePhone from './mobilePhone.js';
+import MobilePhone from './MobilePhone.js';
 
 const MobilePhoneList = ({mobilePhones}) => {
 
