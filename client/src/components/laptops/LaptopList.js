@@ -1,15 +1,11 @@
 import React from 'react';
 import Laptop from './Laptop.js';
 
-
-
-
 const LaptopList = ({laptops}) => {
 
     if(laptops.lenght === 0){
 		return <p>Loading...</p>
 	}
-
 
     const LaptopElements = laptops.map((laptop) => {
         
@@ -28,7 +24,6 @@ const LaptopList = ({laptops}) => {
 		</div>
 
 	)
-
 }
 
 export default LaptopList;

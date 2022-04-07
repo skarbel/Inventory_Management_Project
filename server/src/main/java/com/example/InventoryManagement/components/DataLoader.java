@@ -90,13 +90,13 @@ public class DataLoader implements ApplicationRunner {
         TV tv20 = new TV("32WK3C63DB", Manufacturer.TOSHIBA, "tvth32b", "TV", 1, 110, 220, "HD Ready", false, 32);
         tvRepository.save(tv20);
 
-        MobilePhone phone1 = new MobilePhone("13", Manufacturer.APPLE, "mpai13", "Mobile Phone" , 10,750,1250,  "Midnight" , 6.1);
+        MobilePhone phone1 = new MobilePhone("Iphone 13", Manufacturer.APPLE, "mpai13", "Mobile Phone" , 10,750,1250,  "Midnight" , 6.1);
         mobilePhoneRepository.save(phone1);
 
-        MobilePhone AppleIPhone13Pro = new MobilePhone("13 PRO", Manufacturer.APPLE, "mpai13p", "Mobile Phone" , 9,850,949,  "Midnight" , 6.1);
+        MobilePhone AppleIPhone13Pro = new MobilePhone("Iphone 13 PRO", Manufacturer.APPLE, "mpai13p", "Mobile Phone" , 9,850,949,  "Midnight" , 6.1);
         mobilePhoneRepository.save(AppleIPhone13Pro);
 
-        MobilePhone AppleIPhone13ProMax = new MobilePhone("13 PRO MAX", Manufacturer.APPLE, "mpai13m", "Mobile Phone" , 8,950,1049,  "Graphite" , 6.7);
+        MobilePhone AppleIPhone13ProMax = new MobilePhone("Iphone 13 PRO MAX", Manufacturer.APPLE, "mpai13m", "Mobile Phone" , 8,950,1049,  "Graphite" , 6.7);
         mobilePhoneRepository.save(AppleIPhone13ProMax);
 
         MobilePhone SamsungGalaxy22 = new MobilePhone("Galaxy S22", Manufacturer.SAMSUNG, "mpsgs22", "Mobile Phone" , 7,680,769,  "Pantom Black" , 6.1);
