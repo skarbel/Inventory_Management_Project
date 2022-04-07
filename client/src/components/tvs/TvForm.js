@@ -48,7 +48,7 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
         setStateTv(copiedTv)
     }
 
-    //to prepopulate the edit form of the dropdown
+    //to pre-populate the edit form of the dropdown
     const isSmart = () => {
         if(tv){
             return tv.smart;
