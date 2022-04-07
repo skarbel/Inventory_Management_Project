@@ -1,15 +1,15 @@
-// import MainContainer from './containers/MainContainer';
-// import './App.css';
+import MainContainer from './containers/MainContainer';
+import './App.css';
 
-// function App() {
-//   return (
+function App() {
+  return (
 
-//       <div>
-//       <MainContainer />
-//       </div>
+      <div>
+      <MainContainer />
+      </div>
    
-//   );
-// }
+  );
+}
 
 // export default App;
 
@@ -26,4 +26,4 @@
 //   }
 // }
 
-// export default App;
+export default App;

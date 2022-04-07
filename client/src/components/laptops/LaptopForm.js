@@ -29,13 +29,6 @@ const LaptopForm = ({laptop, onCreate, onUpdate}) => {
         heading = "Edit" + laptop.model;
     }
 
-    const handleChange = (event) => {
-        let propertyName = event.target.model;
-        let copiedLaptop = {...stateLaptop};
-        copiedLaptop[propertyName] = event.target.value;
-        setStateLaptop(copiedLaptop)
-    }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         if(stateLaptop.id){
@@ -44,6 +37,14 @@ const LaptopForm = ({laptop, onCreate, onUpdate}) => {
             onCreate(stateLaptop);
         }
     }
+
+    const handleChange = (event) => {
+        let propertyName = event.target.model;
+        let copiedLaptop = {...stateLaptop};
+        copiedLaptop[propertyName] = event.target.value;
+        setStateLaptop(copiedLaptop)
+    }
+
     
 
     // const handleManufacturer = (event) => {
@@ -62,12 +63,11 @@ const LaptopForm = ({laptop, onCreate, onUpdate}) => {
         <>
         <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
-        <p>Model  
-        <input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateLaptop.model}/>
-        </p>
+        <label for="model">Model:</label>
+        <input type="text" placeholder="Model" name="model" onChange={handleChange} />
         <p>Manufacturer
-        <select name="manufacturer" onChange={handleChange} defaultValue={"select-manufacturer"}>
-        <option selected="">Manufacturer</option>
+        <select name="manufacturer" defaultValue={"select manufacturer"}>
+        <option disabled value="select-manufacturer">Manufacturer</option>
         <option>SAMSUNG</option>
         <option>LG</option>
         <option>SONY</option>

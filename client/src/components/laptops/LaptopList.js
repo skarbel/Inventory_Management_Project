@@ -7,11 +7,11 @@ const LaptopList = ({laptops}) => {
 		return <p>Loading...</p>
 	}
 
-    const LaptopElements = laptops.map((laptop) => {
+    const LaptopElements = laptops.map((laptop, index) => {
         
 			return (
-			<li key={laptop.id} className="component-item">
-				<div>
+			<li key={index} className="component-item">
+				<div className='component'>
 				<Laptop laptop={laptop}/>
 				</div>
 			</li>
