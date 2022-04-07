@@ -1,21 +1,17 @@
 import React from 'react';
 import Laptop from './Laptop.js';
 
-
-
-
 const LaptopList = ({laptops}) => {
 
     if(laptops.lenght === 0){
 		return <p>Loading...</p>
 	}
 
-
-    const LaptopElements = laptops.map((laptop) => {
+    const LaptopElements = laptops.map((laptop, index) => {
         
 			return (
-			<li key={laptop.id} className="component-item">
-				<div>
+			<li key={index} className="component-item">
+				<div className='component'>
 				<Laptop laptop={laptop}/>
 				</div>
 			</li>
@@ -28,7 +24,6 @@ const LaptopList = ({laptops}) => {
 		</div>
 
 	)
-
 }
 
 export default LaptopList;

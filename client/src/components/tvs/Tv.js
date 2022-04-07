@@ -8,13 +8,12 @@ const Tv = ({tv}) => {
     }
     return (
         <>
-        <p> {tv.manufacturer} {tv.model} </p>
-        <p>Price: {tv.sellingPrice} </p>
-        <p>Colour: {tv.colour} </p>
-        <p>Screen Size: {tv.size}</p>
+        <b><p> {tv.manufacturer} {tv.model} </p></b>
+        <p>Price: {tv.sellingPrice}$ </p>
+        <p>Screen Size: {tv.screen}"</p>
         <p>In Stock: {tv.stock}</p>
         <p>Product Number: {tv.productNumber}</p>
-        <p>Category: {tv.category}</p>
+        <p>Category: {tv.category} </p>
         </>
     )
 }
