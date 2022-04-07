@@ -1,29 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../Style/LogIn.css'
 
 const LogInContainer = () => {
 
-  const [managerMode, setManagerMode] = useState(null);
-  const [userMode, setUserMode] = useState(null);
+  const [accessLevel, setAccessLevel] = useState("User");
 
-  let url = "http://localhost:3000/tvs"
-
-  const isManager = () => {
-    setManagerMode(true)
-    setUserMode(false)
-    window.location.replace = url
+  const handleSelect=(e)=>{
+    e.preventDefault()
+    console.log(e);
+    window.location = "/laptops"
   }
-    
-  const isUser = () => {
-    setUserMode(true)
-    setManagerMode(false)
-    window.location.replace = url
+
+  const handleUserSelect = (e) => {
+    console.log(e.target.value)
+    setAccessLevel(e.target.value)
   }
     
   return(
         <div className="login-wrapper">
-      <h1>Log In</h1>
-      <form>
+      <h1>Log In Page</h1>
+      <form onSubmit={handleSelect}>
         <label>
           <p>Username</p>
           <input type="text" />
@@ -33,18 +29,16 @@ const LogInContainer = () => {
           <input type="password" />
         </label>
 
-        {/* <label>
-           <p>Log in as:</p>
-           <select name="userLevel" >
-               <option value="">--Please choose an option--</option>
+        <label>
+           <p>Log in as {accessLevel}</p>
+           <select name="userLevel" value = {accessLevel} onChange = {handleUserSelect} >
                <option value="Manager">Manager</option>
                <option value="User">User</option>
            </select>
-         </label> */}
+         </label>
 
         <div>
-          <button onClick={isManager} type="submit">Manager</button>
-          <button onClick={isUser} type="submit">User</button>
+          <input type="submit" value="submit" />
         </div>
       </form>
     </div>
