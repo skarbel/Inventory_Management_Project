@@ -20,14 +20,14 @@ useEffect (() => {
   .then(data => setLaptops(data))
 }
 
-const handlePost = (pirate) =>{
+const handlePost = (laptop) =>{
   const request = new Request();
   const url = "/api/laptops";
   request.post(url, laptops)
   .then(() => {window.location = "/laptops"})
   }
   
-  const handleUpdate = (pirate) => {
+  const handleUpdate = (laptop) => {
     const request = new Request();
     request.patch("/api/laptops/" + laptops.id, laptops)
     .then(() => {
