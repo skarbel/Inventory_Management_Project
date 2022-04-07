@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LaptopList from "../components/laptops/LaptopList";
 import MobilePhoneList from "../components/mobilePhones/mobilePhoneList";
 import TvList from "../components/tvs/Tvlist";
+import { Link } from "react-router-dom";
 
 
 const InventoryContainer = () => {
@@ -64,12 +65,28 @@ const InventoryContainer = () => {
     )
   })
 
+  const newLaptopsUrl = "/laptops/new"
+  const newTvUrl = "/tvs/new"
+  const newMobilePhoneUrl = "/mobilephones/new"
+
 
   return(
-
+    <>
     <Fragment>
-      {itemElements}
+      {itemElements}  
     </Fragment>
+    <div className="dropdown">
+       <button className="dropbtn">Add Item</button>
+      <div className="dropdown-content">
+        <Link to={newLaptopsUrl}>Laptops</Link>
+        <Link to={newTvUrl}>Televisions</Link>
+        <Link to={newMobilePhoneUrl}>Mobile Phones</Link>
+      </div>
+    </div>
+    </>
+
+
+
 
   )
 }
