@@ -1,8 +1,10 @@
 import { Fragment, useState, useEffect } from "react"
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LaptopList from "../components/laptops/LaptopList";
-import MobilePhoneList from "../components/mobilePhones/mobilePhoneList";
+import MobilePhoneList from "../components/mobilePhones/MobilePhoneList";
 import TvList from "../components/tvs/Tvlist";
+import Link from "react-router-dom/Link";
+import '../Style/Inventory.css'
 
 
 const InventoryContainer = () => {
@@ -64,13 +66,33 @@ const InventoryContainer = () => {
     )
   })
 
+  // const newLaptopsUrl = "/laptops/new"
+  // const newTvUrl = "/tvs/new"
+  // const newMobilePhoneUrl = "/mobilephones/new"
+
 
   return(
-
-    <Fragment>
-      {itemElements}
-    </Fragment>
-
+    <>
+    <div className="dropdown">
+       <button className="dropbtn">Add Item</button>
+      <div className="dropdown-content">
+        {/* <Link to={newLaptopsUrl}>Laptops</Link>
+        <Link to={newTvUrl}>Televisions</Link>
+        <Link to={newMobilePhoneUrl}>Mobile Phones</Link> */}
+        <a href="http://localhost:3000/laptops/new">Laptop</a>
+        <a href="http://localhost:3000/tvs/new">Television</a>
+        <a href="http://localhost:3000/mobilephones/new">Mobile Phone</a>
+      </div>
+    </div>
+    <div>
+    {itemElements} 
+    </div>
+    {/* <button type = "submit" onSubmit={window.location = "/tvs"} className="itemDetails">button name </button> */}
+    
+    {/* <Fragment> */}
+       {/* </Fragment> */}
+    
+    </>
   )
 }
 

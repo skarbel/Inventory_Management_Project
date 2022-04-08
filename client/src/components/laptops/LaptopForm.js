@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 
-const LaptopForm = ({laptop, onCreate, onUpdate}) => {
+const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
 
     const [stateLaptop, setStateLaptop] = useState({
         model: "",
@@ -26,7 +26,7 @@ const LaptopForm = ({laptop, onCreate, onUpdate}) => {
     if(!laptop) {
         heading = "Add laptop to inventory"
     } else {
-        heading = "Edit" + laptop.model;
+        heading = "Edit " + laptop.model;
     }
 
     const handleSubmit = (event) => {
@@ -39,11 +39,13 @@ const LaptopForm = ({laptop, onCreate, onUpdate}) => {
     }
 
     const handleChange = (event) => {
-        let propertyName = event.target.model;
+        let propertyName = event.target.name;
         let copiedLaptop = {...stateLaptop};
         copiedLaptop[propertyName] = event.target.value;
         setStateLaptop(copiedLaptop)
     }
+
+
 
     
 
@@ -55,9 +57,22 @@ const LaptopForm = ({laptop, onCreate, onUpdate}) => {
     //     setStateLaptop(copiedLaptop);
     //     }
 
-    // const manufacturerOptions = manufacturers.map((manufacturer, index) => {
-    //     return <option key={index} value={index}>{manufacturer}</option>
-    // })
+    const manufacturerOptions = manufacturers.map((manufacturer, index) => {
+        return <option key={index} value={index}>{manufacturer}</option>
+    })
+
+
+    const findLaptopManufacturerIndex = () => {
+        if(laptop){
+            for(let manufacturer of manufacturers){
+                if(manufacturer == laptop.manufacturer){
+                    console.log(parseInt(manufacturers.indexOf(manufacturer)));
+                    return manufacturers.indexOf(manufacturer)
+                }
+            }
+            return null
+    }
+    }
 
     return (
         <>
@@ -66,20 +81,9 @@ const LaptopForm = ({laptop, onCreate, onUpdate}) => {
         <label for="model">Model:</label>
         <input type="text" placeholder="Model" name="model" onChange={handleChange} />
         <p>Manufacturer
-        <select name="manufacturer" defaultValue={"select manufacturer"}>
+        <select name="manufacturer" defaultValue={findLaptopManufacturerIndex() || "select-manufacturer"}>
         <option disabled value="select-manufacturer">Manufacturer</option>
-        <option>SAMSUNG</option>
-        <option>LG</option>
-        <option>SONY</option>
-        <option>HUAWEI</option>
-        <option>APPLE</option>
-        <option>DELL</option>
-        <option>HP</option>
-        <option>XAOMI</option>
-        <option>HISENSE</option>
-        <option>TOSHIBA</option>
-        <option>ONEPLUS</option>
-        <option>ASUS</option>
+        {manufacturerOptions}
         </select>
         </p>
         <p>Placeholder<input type="text" placeholder="Product number" name="productNumber" onChange={handleChange} value={stateLaptop.productNumber}/></p>
