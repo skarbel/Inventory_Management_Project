@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from "react"
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LaptopList from "../components/laptops/LaptopList";
-import MobilePhoneList from "../components/mobilePhones/mobilePhoneList";
+import MobilePhoneList from "../components/mobilePhones/MobilePhoneList";
 import TvList from "../components/tvs/Tvlist";
 import { Link } from "react-router-dom";
 
@@ -70,11 +70,16 @@ const InventoryContainer = () => {
   const newMobilePhoneUrl = "/mobilephones/new"
 
 
+<<<<<<< HEAD
   return(
     <>
+=======
+  return( 
+>>>>>>> develop
     <Fragment>
       {itemElements}  
     </Fragment>
+<<<<<<< HEAD
     <div className="dropdown">
        <button className="dropbtn">Add Item</button>
       <div className="dropdown-content">
@@ -88,6 +93,8 @@ const InventoryContainer = () => {
 
 
 
+=======
+>>>>>>> develop
   )
 }
 
