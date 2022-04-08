@@ -79,7 +79,7 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
         <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
         <label for="model">Model:</label>
-        <input type="text" placeholder="Model" name="model" onChange={handleChange} />
+        <input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateLaptop.model}/>
         <p>Manufacturer
         <select name="manufacturer" defaultValue={findLaptopManufacturerIndex() || "select-manufacturer"}>
         <option disabled value="select-manufacturer">Manufacturer</option>
