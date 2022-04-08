@@ -8,7 +8,7 @@ const LaptopDetail = ({laptop}) => {
         return "Application Loading..."
     }
 
-    const editUrl = "/laptops" + laptop.id + "/edit"
+    const editUrl = "/laptops/" + laptop.id + "/edit"
 
     return (
         <div className="component">

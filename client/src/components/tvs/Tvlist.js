@@ -1,19 +1,20 @@
 import React from 'react';
-import Tv from './Tv'
-
+import Tv from './Tv.js'
+import Link from 'react-router-dom/Link';
 
 
 const TvList = ({ tvs }) => {
 
-    if (tvs.lenght === 0) {
+    if (tvs.length === 0) {
         return <p> Loading... </p>
     }
 
-    const tvNodes = tvs.map((tv,index) => {
+    const tvElements = tvs.map((tv, index) => {
+        const detailUrl = "/tvs/" + tv.id
         return (
             <li key={index} className = "component- item">
                 <div className = "component">
-                    <Tv tv = {tv}/>
+                    <Link to={detailUrl}><Tv tv={tv}/></Link>
                 </div>
             </li>
         )
@@ -21,7 +22,7 @@ const TvList = ({ tvs }) => {
 
     return (
         <ul className='component - list'>
-            {tvNodes}
+            {tvElements}
         </ul>
     )
 }

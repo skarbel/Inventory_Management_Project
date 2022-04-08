@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 const MobilePhone = ({mobilePhone}) => {
 
     if (!mobilePhone){
-        return "Loading..."
+        return "Application Loading..."
     }
     return (
         <Fragment>
@@ -19,7 +19,6 @@ const MobilePhone = ({mobilePhone}) => {
         </Fragment>
 
     )
-
 }
 
 export default MobilePhone;

@@ -8,16 +8,16 @@ const MobilePhoneDetail = ({mobilePhone}) => {
         return "Application Loading..."
     }
 
-    const editUrl = "/mobilephones" + mobilePhone.id + "/edit"
+    const editMobilePhoneUrl = "/mobilephones/" + mobilePhone.id + "/edit"
 
     return(
         <div className="component">
             <MobilePhone mobilePhone={mobilePhone}/>
-            <Link to={editUrl}>
+            <Link to={editMobilePhoneUrl}>
                 <button type="button">Edit {mobilePhone.model}</button>
             </Link>
         </div>
     )
 }
 
-export default MobilePhone;
+export default MobilePhoneDetail;
