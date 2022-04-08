@@ -40,7 +40,7 @@ const MobilePhoneList = ({mobilePhones}) => {
     }
 
 
-    const mobilePhoneNodes = mobilePhones.map((mobilePhone, index) => {
+    const mobilephoneElements = mobilePhones.map((mobilePhone, index) => {
         const detailUrl = "/mobilephones/" + mobilePhone.id
         return (
         <li key={index} className="component-item">
@@ -53,7 +53,7 @@ const MobilePhoneList = ({mobilePhones}) => {
 
     return (
         <ul className="component-list">
-            {mobilePhoneNodes}
+            {mobilephoneElements}
         </ul>
     )
 }

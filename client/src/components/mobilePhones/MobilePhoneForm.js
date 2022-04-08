@@ -132,7 +132,7 @@ const MobilePhoneForm = ({mobilePhone, onCreate, onUpdate, manufacturers}) => {
 
     let heading = ""
     if(!mobilePhone){
-        heading = "Create Mobile Phone"
+        heading = "Add Mobile Phone to inventory"
     } else {
         heading = "Edit " + mobilePhone.model;
     }

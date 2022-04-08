@@ -21,15 +21,16 @@ fetch('http://localhost:8080/api/laptops')
 .then(data => setLaptops(data))
 }
 
-const findLaptopById = (id) => {
-  return laptops.find((laptop) => {
-    return laptop.id === parseInt(id);
-  })
-}
 const fetchManufacturers = () => {
   fetch('http://localhost:8080/api/inventory/manufacturer')
   .then(response => response.json())
   .then(data => setManufacturers(data))
+}
+
+const findLaptopById = (id) => {
+  return laptops.find((laptop) => {
+    return laptop.id === parseInt(id);
+  })
 }
 
 const handlePost = (laptop) => {

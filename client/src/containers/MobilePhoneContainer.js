@@ -56,7 +56,7 @@ const MobilePhoneContainer = () => {
           <Route exact path="/mobilephones/:id/edit" render={(props) => {
             const id = props.match.params.id;
             const mobilePhone = findMobilePhoneById(id);
-            return <MobilePhoneForm mobilePhone={mobilePhone} onUpdate={handleUpdate}/>
+            return <MobilePhoneForm mobilePhone={mobilePhone} onUpdate={handleUpdate} manufacturers={manufacturers}/>
           }}/>
           <Route exact path="/mobilephones/:id" render={(props) => {
             const id = props.match.params.id;
