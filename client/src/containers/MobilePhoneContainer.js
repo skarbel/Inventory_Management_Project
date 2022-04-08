@@ -42,8 +42,8 @@ const MobilePhoneContainer = () => {
 
     const handleUpdate = (mobilePhone) => {
       const request = new Request();
-      request.patch("/api/mobilephones" + mobilePhone.id, mobilePhone)
-      .then(() => {window.location = "/mobilephones" + mobilePhone.id})
+      request.patch("/api/mobilephones/" + mobilePhone.id, mobilePhone)
+      .then(() => {window.location = "/mobilephones/" + mobilePhone.id})
     }
 
     return (

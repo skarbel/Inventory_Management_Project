@@ -3,12 +3,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LaptopList from "../components/laptops/LaptopList";
 import MobilePhoneList from "../components/mobilePhones/MobilePhoneList";
 import TvList from "../components/tvs/Tvlist";
-<<<<<<< HEAD
 import Link from "react-router-dom/Link";
 import '../Style/Inventory.css'
-=======
-import { Link } from "react-router-dom";
->>>>>>> e5cc6f1fbe878ef4efbffd55512f715bf6fcefe0
 
 
 const InventoryContainer = () => {
@@ -70,7 +66,6 @@ const InventoryContainer = () => {
     )
   })
 
-<<<<<<< HEAD
   // const newLaptopsUrl = "/laptops/new"
   // const newTvUrl = "/tvs/new"
   // const newMobilePhoneUrl = "/mobilephones/new"
@@ -98,38 +93,6 @@ const InventoryContainer = () => {
        {/* </Fragment> */}
     
     </>
-=======
-  const newLaptopsUrl = "/laptops/new"
-  const newTvUrl = "/tvs/new"
-  const newMobilePhoneUrl = "/mobilephones/new"
-
-
-<<<<<<< HEAD
-  return(
-    <>
-=======
-  return( 
->>>>>>> develop
-    <Fragment>
-      {itemElements}  
-    </Fragment>
-<<<<<<< HEAD
-    <div className="dropdown">
-       <button className="dropbtn">Add Item</button>
-      <div className="dropdown-content">
-        <Link to={newLaptopsUrl}>Laptops</Link>
-        <Link to={newTvUrl}>Televisions</Link>
-        <Link to={newMobilePhoneUrl}>Mobile Phones</Link>
-      </div>
-    </div>
-    </>
-
-
-
-
-=======
->>>>>>> develop
->>>>>>> e5cc6f1fbe878ef4efbffd55512f715bf6fcefe0
   )
 }
 
