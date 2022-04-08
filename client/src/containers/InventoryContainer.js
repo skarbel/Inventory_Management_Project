@@ -73,6 +73,7 @@ const InventoryContainer = () => {
 
   return(
     <>
+    
     <div className="dropdown">
        <button className="dropbtn">Add Item</button>
       <div className="dropdown-content">
@@ -84,14 +85,25 @@ const InventoryContainer = () => {
         <a href="http://localhost:3000/mobilephones/new">Mobile Phone</a>
       </div>
     </div>
+
+    <div className="dropdown">
+       <button className="dropbtn">Category</button>
+      <div className="dropdown-content">
+        {/* <Link to={newLaptopsUrl}>Laptops</Link>
+        <Link to={newTvUrl}>Televisions</Link>
+        <Link to={newMobilePhoneUrl}>Mobile Phones</Link> */}
+        <a href="http://localhost:3000/laptops">Laptop</a>
+        <a href="http://localhost:3000/tvs">Television</a>
+        <a href="http://localhost:3000/mobilephones">Mobile Phone</a>
+      </div>
+    </div>
+
+
+
     <div>
     {itemElements} 
     </div>
     {/* <button type = "submit" onSubmit={window.location = "/tvs"} className="itemDetails">button name </button> */}
-    
-    {/* <Fragment> */}
-       {/* </Fragment> */}
-    
     </>
   )
 }
