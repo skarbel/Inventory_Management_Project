@@ -8,15 +8,16 @@ const Laptop = ({laptop})  => {
     }
     return (
         <Fragment>
-        <p>Model: {laptop.model}</p>
         <p>Manufacturer: {laptop.manufacturer}</p>
+        <p>Model: {laptop.model}</p>
         <p>Product Number: {laptop.productNumber}</p>
         <p>Category: {laptop.category}</p>
-        <p>Stock: {laptop.stock}</p>
-        <p>Price: {laptop.sellingPrice}</p>
-        <p>Screen Size: {laptop.screenSize}</p>
+        <p>Screen Size: {laptop.screenSize}"</p>
+        <p>RAM: {laptop.ram}GB</p>
         <p>Storage: {laptop.storage}</p>
-        <p>RAM: {laptop.ram}</p>
+        <p>In Stock: {laptop.stock}</p>
+        <p>Price: {laptop.sellingPrice}$</p>
+        <p>Purchase Price: {laptop.buyingPrice}$</p>
         </Fragment>
     )
 }

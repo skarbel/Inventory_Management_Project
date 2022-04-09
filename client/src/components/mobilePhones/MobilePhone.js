@@ -7,15 +7,15 @@ const MobilePhone = ({mobilePhone}) => {
     }
     return (
         <Fragment>
-            <p>
-            {mobilePhone.manufacturer} {mobilePhone.model}
-            </p>
-            <p>Price: {mobilePhone.sellingPrice} </p>
-            <p>Colour: {mobilePhone.colour} </p>
-            <p>Screen Size: {mobilePhone.size}</p>
-            <p>In Stock: {mobilePhone.stock}</p>
+            <p>Manufacturer: {mobilePhone.manufacturer}</p>
+            <p>Model: {mobilePhone.model}</p>
             <p>Product Number: {mobilePhone.productNumber}</p>
             <p>Category: {mobilePhone.category}</p>
+            <p>Colour: {mobilePhone.colour} </p>
+            <p>Screen Size: {mobilePhone.size}"</p>
+            <p>In Stock: {mobilePhone.stock}</p>
+            <p>Price: {mobilePhone.sellingPrice}$ </p>
+            <p>Purchase Price: {mobilePhone.buyingPrice}$</p>
         </Fragment>
 
     )
