@@ -8,7 +8,7 @@ const LogInContainer = () => {
   const handleSelect=(e)=>{
     e.preventDefault()
     console.log(e);
-    window.location = "/laptops"
+    window.location = "/api/inventory"
   }
 
   const handleUserSelect = (e) => {
@@ -22,11 +22,11 @@ const LogInContainer = () => {
       <form onSubmit={handleSelect}>
         <label>
           <p>Username</p>
-          <input type="text" />
+          <input type="text" required/>
         </label>
         <label>
           <p>Password</p>
-          <input type="password" />
+          <input type="password" required/>
         </label>
 
         <label>

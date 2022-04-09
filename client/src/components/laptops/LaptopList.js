@@ -15,14 +15,14 @@ const LaptopList = ({laptops}) => {
 				<div className='component'>
 				<Link to={detailUrl}><Laptop laptop={laptop}/></Link>
 				</div>
-		</li>
+			</li>
 		)
 		})
 
 	return (
-		<div className="component-list">
+		<ul className="component-list">
 			{LaptopElements}
-		</div>
+		</ul	>
 
 	)
 }

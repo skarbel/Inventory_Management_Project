@@ -78,22 +78,21 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
         <>
         <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
-        <label for="model">Model:</label>
-        <input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateLaptop.model}/>
-        <p>Manufacturer
+        <p>Manufacturer: 
         <select name="manufacturer" defaultValue={findLaptopManufacturerIndex() || "select-manufacturer"}>
         <option disabled value="select-manufacturer">Manufacturer</option>
         {manufacturerOptions}
         </select>
         </p>
-        <p>Product Number<input type="text" placeholder="Product number" name="productNumber" onChange={handleChange} value={stateLaptop.productNumber}/></p>
-        <p>Category<input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateLaptop.category}/></p>
-        <p>Screen Size<input type="number" placeholder="Screen size" name="screenSize" onChange={handleChange} value={stateLaptop.screenSize}/></p>
-        <p>RAM<input type="number" placeholder="Ram" name="ram" onChange={handleChange} value={stateLaptop.ram}/></p>
-        <p>Storage<input type="number" placeholder="Storage" name="storage" onChange={handleChange} value={stateLaptop.storage}/></p>
-        <p>Stock<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateLaptop.stock}/></p>
-        <p>Purhase amount from manufacturer<input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateLaptop.buyingPrice}/></p>
-        <p>Selling price<input type="number" placeholder="Selling price" name="sellingPrice" onChange={handleChange} value={stateLaptop.sellingPrice}/></p>
+        <p>Model:<input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateLaptop.model}/></p>
+        <p>Product Number:<input type="text" placeholder="Product number" name="productNumber" onChange={handleChange} value={stateLaptop.productNumber}/></p>
+        <p>Category:<input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateLaptop.category}/></p>
+        <p>Screen Size:<input type="number" placeholder="Screen size" name="screenSize" onChange={handleChange} value={stateLaptop.screenSize}/></p>
+        <p>RAM:<input type="number" placeholder="Ram" name="ram" onChange={handleChange} value={stateLaptop.ram}/></p>
+        <p>Storage:<input type="number" placeholder="Storage" name="storage" onChange={handleChange} value={stateLaptop.storage}/></p>
+        <p>In Stock:<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateLaptop.stock}/></p>
+        <p>Price:<input type="number" placeholder="Selling price" name="sellingPrice" onChange={handleChange} value={stateLaptop.sellingPrice}/></p>
+        <p>Purhase Price:<input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateLaptop.buyingPrice}/></p>
         <p><button type="submit">Save</button></p>
         </form>
         </>

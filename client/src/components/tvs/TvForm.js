@@ -77,32 +77,28 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
         <>
         <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
-            <label for="model">Model:</label>
-            <input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateTv.model}/>
+            <p>Manufacturer:
             <select name="manufacturer"  defaultValue={findTvManufacturerIndex() || "select-manufacturer"}>
                 <option disabled value="select-manufacturer">Select manufacturer</option>
-                {/* {getManufactures} */}
-             </select>
-             <label for="Product-number">Product Number:</label>
-            <input type="text" placeholder="Product Number" name="productNumber" onChange={handleChange} value={stateTv.productNumber}/>
-            <label for="Category">Category:</label>
-            <input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateTv.category}/>
-            <label for="Stock">Stock:</label>
-            <input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateTv.stock}/>
-            <label for="Buying-price">Buying Price:</label>
-            <input type="number" placeholder="Buying Price" name="buyingPrice" onChange={handleChange} value={stateTv.buyingPrice}/>
-            <label for="Selling-price">Selling Price:</label>
-            <input type="number" placeholder="Selling Price" name="sellingPrice" onChange={handleChange} value={stateTv.sellingPrice}/>
-            <label for="Screen-Resolution">Screen Resolution:</label>
-            <input type="text" placeholder="Screen Resolution" name="screenResolution" onChange={handleChange} value={stateTv.screenResolution}/>
-            <label for="Smart-TV">Smart TV:</label>
-            <select name="is-smart"  defaultValue={isSmart()||"select a value"}>
+                {manufacturerOptions}
+            </select>
+            </p>
+            <p>Model:<input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateTv.model}/></p>
+            <p>Product Number:<input type="text" placeholder="Product Number" name="productNumber" onChange={handleChange} value={stateTv.productNumber}/></p>
+            <p>Category:<input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateTv.category}/></p>
+            <p>Screen Size:<input type="number" placeholder="Screen" name="screen" onChange={handleChange} value={stateTv.screen}/></p>
+            <p>Screen Resolution:<input type="text" placeholder="Screen Resolution" name="screenResolution" onChange={handleChange} value={stateTv.screenResolution}/></p>
+            <p>Smart Features:
+                <select name="is-smart"  defaultValue={isSmart()||"select a value"}>
                 <option disabled value="select-smart">Smart TV?</option>
                 <option key='0' value='yes'>yes</option>
                 <option key='1' value='no'>no</option>
-             </select>
-             <label for="Screen">Screen:</label>
-            <input type="number" placeholder="Screen" name="screen" onChange={handleChange} value={stateTv.screen}/>
+                </select>
+             </p>
+            <p>In Stock:<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateTv.stock}/></p>
+            <p>Price:<input type="number" placeholder="Selling Price" name="sellingPrice" onChange={handleChange} value={stateTv.sellingPrice}/></p>
+            <p>Purchase Price:<input type="number" placeholder="Buying Price" name="buyingPrice" onChange={handleChange} value={stateTv.buyingPrice}/></p>
+            
             <p><button type="submit">Save</button></p>
         </form>
         

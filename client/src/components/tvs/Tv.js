@@ -8,12 +8,16 @@ const Tv = ({tv}) => {
     }
     return (
         <Fragment>
-        <b><p> {tv.manufacturer} {tv.model} </p></b>
-        <p>Price: {tv.sellingPrice}$ </p>
-        <p>Screen Size: {tv.screen}"</p>
-        <p>In Stock: {tv.stock}</p>
+        <p>Manufacturer: {tv.manufacturer}</p>
+        <p>Model: {tv.model} </p>
         <p>Product Number: {tv.productNumber}</p>
         <p>Category: {tv.category} </p>
+        <p>Screen Size: {tv.screen}"</p>
+        <p>Screen Resolution: {tv.screenResolution}</p>
+        <p>Smart Features: {tv.smart}</p>
+        <p>In Stock: {tv.stock}</p>
+        <p>Price: {tv.sellingPrice}$ </p>
+        <p>Purchase Price: {tv.buyingPrice}$</p>
         </Fragment>
     )
 }

@@ -65,28 +65,20 @@ const MobilePhoneForm = ({mobilePhone, onCreate, onUpdate, manufacturers}) => {
         <>
         <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
-            <label for="model">Model:</label>
-            <input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateMobilePhone.model}/>
+            <p>Manufacturer:
             <select name="manufacturer" defaultValue={findMobileLaptopManufacturerIndex() || "select-manufacturer"}>
             <option disabled value="select-manufacturer">Manufacturer</option>
             {manufacturerOptions}
             </select>
-            <label for="Product-number">Product Number:</label>
-            <input type="text" placeholder="Product Number" name="productNumber" onChange={handleChange} value={stateMobilePhone.productNumber}/>
-            <label for="Category">Category:</label>
-            <input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateMobilePhone.category}/>
-            <label for="Stock">Stock:</label>
-            <input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateMobilePhone.stock}/>
-            <label for="Buying-price">Buying Price:</label>
-            <input type="number" placeholder="Buying Price" name="buyingPrice" onChange={handleChange} value={stateMobilePhone.buyingPrice}/>
-            <label for="Selling-price">Selling Price:</label>
-            <input type="number" placeholder="Selling Price" name="sellingPrice" onChange={handleChange} value={stateMobilePhone.sellingPrice}/>
-            {/* <label for="Screen-Resolution">Screen Resolution:</label> */}
-            {/* <input type="text" placeholder="Screen Resolution" name="screenResolution" onChange={handleChange} value={stateMobilePhone.screenResolution}/> */}
-            <label for="Colour">Colour:</label>
-            <input type="text" placeholder="Colour" name="colour" onChange={handleChange} value={stateMobilePhone.colour}/>
-            <label for="Size">Screen Size:</label>
-            <input type="number" placeholder="Size" name="size" onChange={handleChange} value={stateMobilePhone.size}/>
+            </p>
+            <p>Model:<input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateMobilePhone.model}/></p>
+            <p>Product Number:<input type="text" placeholder="Product Number" name="productNumber" onChange={handleChange} value={stateMobilePhone.productNumber}/></p>
+            <p>Category:<input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateMobilePhone.category}/></p>
+            <p>Colour:<input type="text" placeholder="Colour" name="colour" onChange={handleChange} value={stateMobilePhone.colour}/></p>
+            <p>Screen Size:<input type="number" placeholder="Size" name="size" onChange={handleChange} value={stateMobilePhone.size}/></p>
+            <p>In Stock:<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateMobilePhone.stock}/></p>
+            <p>Price:<input type="number" placeholder="Selling Price" name="sellingPrice" onChange={handleChange} value={stateMobilePhone.sellingPrice}/></p>
+            <p>Purchace Price:<input type="number" placeholder="Buying Price" name="buyingPrice" onChange={handleChange} value={stateMobilePhone.buyingPrice}/></p>
             <p><button type="submit">Save</button></p>
         </form>
         </>
