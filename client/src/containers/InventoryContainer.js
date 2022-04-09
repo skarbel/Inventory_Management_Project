@@ -56,12 +56,13 @@ const InventoryContainer = () => {
     }
 
   }, [mobilePhones, tvs, laptops])
-
+  
   const itemElements = inventory.map((item) => {
     return ( 
     <>
-    <p><b>{item.manufacturer}</b> {item.model}</p>
-    {/* <p>{item.productNumber}</p> */}
+    <p>
+      <b>{item.manufacturer}</b> {item.model}
+    </p>
     </>
     )
   })

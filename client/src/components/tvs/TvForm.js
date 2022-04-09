@@ -96,7 +96,7 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
                 </select>
              </p>
             <p>In Stock:<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateTv.stock}/></p>
-            <p>Selling Price:<input type="number" placeholder="Selling Price" name="sellingPrice" onChange={handleChange} value={stateTv.sellingPrice}/></p>
+            <p>Price:<input type="number" placeholder="Selling Price" name="sellingPrice" onChange={handleChange} value={stateTv.sellingPrice}/></p>
             <p>Purchase Price:<input type="number" placeholder="Buying Price" name="buyingPrice" onChange={handleChange} value={stateTv.buyingPrice}/></p>
             
             <p><button type="submit">Save</button></p>
