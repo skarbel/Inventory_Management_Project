@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import { useState } from "react";
 
-
 const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
 
     const [stateTv, setStateTv] = useState({
@@ -34,9 +33,9 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if(stateTv.id){
-            onUpdate(stateTv)
-        }else{
-        onCreate(stateTv);
+            onUpdate(stateTv);
+        } else{
+            onCreate(stateTv);
         }
 
     }
@@ -57,17 +56,21 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
         }
     }
 
-    const manufacturer = () => {
+    const findTvManufacturerIndex = () => {
         if(tv){
-            return tv.manufacturer;
-        }else{
-            return null;
-        }
+            for(let manufacturer of manufacturers){
+                if(manufacturer == tv.manufacturer){
+                    console.log(parseInt(manufacturers.indexOf(manufacturer)));
+                    return manufacturers.indexOf(manufacturer)
+                }
+            }
+            return null
+    }
     }
 
-    // const getManufactures = manufacturers.map((manufacturer, index) =>{
-    //     return <option key={index} value={index}>{manufacturer}</option>
-    // })
+    const manufacturerOptions = manufacturers.map((manufacturer, index) => {
+        return <option key={index} value={index}>{manufacturer}</option>
+    })
 
 
     return(
@@ -76,7 +79,7 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
         <form onSubmit={handleSubmit}>
             <label for="model">Model:</label>
             <input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateTv.model}/>
-            <select name="manufacturer"  defaultValue={manufacturer()||"select a manufacturer"}>
+            <select name="manufacturer"  defaultValue={findTvManufacturerIndex() || "select-manufacturer"}>
                 <option disabled value="select-manufacturer">Select manufacturer</option>
                 {/* {getManufactures} */}
              </select>

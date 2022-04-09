@@ -10,7 +10,7 @@ const TvList = ({ tvs }) => {
     }
 
     const tvElements = tvs.map((tv, index) => {
-        const detailUrl = "/tvs/" + tv.id
+        const detailUrl = "/api/tvs/" + tv.id
         return (
             <li key={index} className = "component- item">
                 <div className = "component">

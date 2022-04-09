@@ -8,11 +8,15 @@ const TvDetail = ({tv}) => {
         return "Application Loading..."
     }
 
-    const editTvsUrl = "/tvs/" + tv.id + "/edit"
+    const editTvsUrl = "/api/tvs/" + tv.id + "/edit"
+    const homeUrl = "/api/inventory"
 
     return (
         <div className="component">
             <Tv tv={tv}/>
+            <Link to={homeUrl}>
+                <button type="button">Home</button>
+            </Link>
             <Link to={editTvsUrl}>
                 <button type="button">Edit {tv.model}</button>
             </Link>

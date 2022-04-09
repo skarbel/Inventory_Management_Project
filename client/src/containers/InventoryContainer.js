@@ -22,7 +22,7 @@ const InventoryContainer = () => {
 
   const fetchLaptops = () => {
     console.log("fetch called");
-  fetch('http://localhost:8080/api/laptops')
+  fetch('/api/laptops')
   .then(response => response.json())
   .then(data => setLaptops(data))
 }
@@ -33,7 +33,7 @@ const InventoryContainer = () => {
 
 
   const fetchMobilePhones = () => {
-    fetch('http://localhost:8080/api/mobilephones')
+    fetch('/api/mobilephones')
     .then(response => response.json())
     .then(data => setMobilePhones(data))
   }
@@ -44,7 +44,7 @@ const InventoryContainer = () => {
 
 
   const fetchTvs = () => {
-    fetch('http://localhost:8080/api/tvs')
+    fetch('/api/tvs')
     .then(response => response.json())
     .then(data => setTvs(data))
   }
@@ -80,9 +80,9 @@ const InventoryContainer = () => {
         {/* <Link to={newLaptopsUrl}>Laptops</Link>
         <Link to={newTvUrl}>Televisions</Link>
         <Link to={newMobilePhoneUrl}>Mobile Phones</Link> */}
-        <a href="http://localhost:3000/laptops/new">Laptop</a>
-        <a href="http://localhost:3000/tvs/new">Television</a>
-        <a href="http://localhost:3000/mobilephones/new">Mobile Phone</a>
+        <a href="http://localhost:3000/api/laptops/new">Laptop</a>
+        <a href="http://localhost:3000/api/tvs/new">Television</a>
+        <a href="http://localhost:3000/api/mobilephones/new">Mobile Phone</a>
       </div>
     </div>
 
@@ -92,9 +92,9 @@ const InventoryContainer = () => {
         {/* <Link to={newLaptopsUrl}>Laptops</Link>
         <Link to={newTvUrl}>Televisions</Link>
         <Link to={newMobilePhoneUrl}>Mobile Phones</Link> */}
-        <a href="http://localhost:3000/laptops">Laptop</a>
-        <a href="http://localhost:3000/tvs">Television</a>
-        <a href="http://localhost:3000/mobilephones">Mobile Phone</a>
+        <a href="http://localhost:3000/api/laptops">Laptop</a>
+        <a href="http://localhost:3000/api/tvs">Television</a>
+        <a href="http://localhost:3000/api/mobilephones">Mobile Phone</a>
       </div>
     </div>
 
