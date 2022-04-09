@@ -1,6 +1,6 @@
 import React from 'react';
 import Laptop from './Laptop.js';
-import Link from 'react-router-dom/Link';
+import {Link} from 'react-router-dom';
 
 const LaptopList = ({laptops}) => {
 
@@ -9,7 +9,7 @@ const LaptopList = ({laptops}) => {
 	}
 
     const LaptopElements = laptops.map((laptop, index) => {
-        const detailUrl = "/laptops/" + laptop.id
+        const detailUrl = "/api/laptops/" + laptop.id
 			return (
 			<li key={index} className="component-item">
 				<div className='component'>

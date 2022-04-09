@@ -4,7 +4,7 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
 
     const [stateLaptop, setStateLaptop] = useState({
         model: "",
-        manufacturer: null,
+        manufacturer: "",
         productNumber: "",
         category: "",
         screenSize: 0.0,
@@ -86,7 +86,7 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
         {manufacturerOptions}
         </select>
         </p>
-        <p>Placeholder<input type="text" placeholder="Product number" name="productNumber" onChange={handleChange} value={stateLaptop.productNumber}/></p>
+        <p>Product Number<input type="text" placeholder="Product number" name="productNumber" onChange={handleChange} value={stateLaptop.productNumber}/></p>
         <p>Category<input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateLaptop.category}/></p>
         <p>Screen Size<input type="number" placeholder="Screen size" name="screenSize" onChange={handleChange} value={stateLaptop.screenSize}/></p>
         <p>RAM<input type="number" placeholder="Ram" name="ram" onChange={handleChange} value={stateLaptop.ram}/></p>
