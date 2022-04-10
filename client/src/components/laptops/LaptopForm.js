@@ -92,7 +92,7 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
         <p>Storage:<input type="number" placeholder="Storage" name="storage" onChange={handleChange} value={stateLaptop.storage}/></p>
         <p>In Stock:<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateLaptop.stock}/></p>
         <p>Price:<input type="number" placeholder="Selling price" name="sellingPrice" onChange={handleChange} value={stateLaptop.sellingPrice}/></p>
-        <p>Purhase Price:<input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateLaptop.buyingPrice}/></p>
+        <p>Purhcase Price:<input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateLaptop.buyingPrice}/></p>
         <p><button type="submit">Save</button></p>
         </form>
         </>
