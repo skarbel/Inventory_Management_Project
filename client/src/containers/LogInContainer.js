@@ -17,18 +17,21 @@ const LogInContainer = () => {
   }
     
   return(
-        <div className="login-wrapper">
+      <div className="login-wrapper">
       <h1>Log In Page</h1>
       <form onSubmit={handleSelect}>
+        <p>
         <label>
           <p>Username</p>
           <input type="text" required/>
         </label>
+        </p>
+        <p>
         <label>
           <p>Password</p>
           <input type="password" required/>
         </label>
-
+        </p>
         <label>
            <p>Log in as {accessLevel}</p>
            <select name="userLevel" value = {accessLevel} onChange = {handleUserSelect} >
@@ -37,7 +40,7 @@ const LogInContainer = () => {
            </select>
          </label>
 
-        <div>
+        <div className="submit-button">
           <input type="submit" value="submit" />
         </div>
       </form>
