@@ -4,7 +4,7 @@ import LaptopList from "../components/laptops/LaptopList";
 import MobilePhoneList from "../components/mobilePhones/MobilePhoneList";
 import TvList from "../components/tvs/Tvlist";
 import Link from "react-router-dom/Link";
-import '../Style/Inventory.css'
+import '../Style/Inventory.css';
 
 
 const InventoryContainer = () => {
@@ -67,6 +67,38 @@ const InventoryContainer = () => {
     )
   })
 
+  const itemManufacturer = inventory.map((item) => {
+    return ( 
+    <>
+    <p>
+      <b>{item.manufacturer}</b>
+    </p>
+    </>
+    )
+  })
+
+  const itemModel = inventory.map((item) => {
+    return (
+      <>
+      <p>
+        <b>{item.model}</b>
+      </p>
+  
+      </>
+    )
+  })
+  
+  const itemStock = inventory.map((item) => {
+    return (
+      <>
+      <p>
+        <b>{item.stock}</b>
+      </p>
+  
+      </>
+    )
+  })
+
   // const newLaptopsUrl = "/laptops/new"
   // const newTvUrl = "/tvs/new"
   // const newMobilePhoneUrl = "/mobilephones/new"
@@ -75,8 +107,21 @@ const InventoryContainer = () => {
   return(
     <>
     
-    <div className="dropdown">
-       <button className="dropbtn">Add Item</button>
+
+   
+    {/* <button type = "submit" onSubmit={window.location = "/tvs"} className="itemDetails">button name </button> */}
+
+
+<div class="container ">
+  <div class="row">
+    <div class="col-0">
+
+    </div>
+
+ 
+<div class="col-12">
+<div  className="dropdown">
+       <button className="dropbtn ">Add Item</button>
       <div className="dropdown-content">
         {/* <Link to={newLaptopsUrl}>Laptops</Link>
         <Link to={newTvUrl}>Televisions</Link>
@@ -85,28 +130,44 @@ const InventoryContainer = () => {
         <a href="http://localhost:3000/api/tvs/new">Television</a>
         <a href="http://localhost:3000/api/mobilephones/new">Mobile Phone</a>
       </div>
-    </div>
-
-    <div className="dropdown">
+    </div>  
+     <div className="dropdown">
        <button className="dropbtn">Category</button>
-      <div className="dropdown-content">
-        {/* <Link to={newLaptopsUrl}>Laptops</Link>
+       <div className="dropdown-content">
+        {/* { <Link to={newLaptopsUrl}>Laptops</Link>
         <Link to={newTvUrl}>Televisions</Link>
-        <Link to={newMobilePhoneUrl}>Mobile Phones</Link> */}
+        <Link to={newMobilePhoneUrl}>Mobile Phones</Link> } */}
         <a href="http://localhost:3000/api/laptops">Laptop</a>
         <a href="http://localhost:3000/api/tvs">Television</a>
         <a href="http://localhost:3000/api/mobilephones">Mobile Phone</a>
       </div>
-    </div>
+      </div>
+ </div>
+      </div>
+<table class="table ">
+  <thead class="table-dark">
+    <tr>
+    <th scope="col">Manufacturer</th>
+     <th scope="col">Model</th>
+      <th scope="col">Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{itemManufacturer}</td>
+      <td>{itemModel}</td>
+      <td>{itemStock}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
-
-    <div>
-    {itemElements} 
-    </div>
-    {/* <button type = "submit" onSubmit={window.location = "/tvs"} className="itemDetails">button name </button> */}
     </>
+
+    
   )
 }
+
 
 export default InventoryContainer;

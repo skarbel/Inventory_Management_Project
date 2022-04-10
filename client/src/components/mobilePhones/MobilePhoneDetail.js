@@ -13,6 +13,7 @@ const MobilePhoneDetail = ({mobilePhone}) => {
 
     return(
         <div className="component">
+            
             <MobilePhone mobilePhone={mobilePhone}/>
             <Link to={homeUrl}>
                 <button type="button">Home</button>
@@ -20,6 +21,7 @@ const MobilePhoneDetail = ({mobilePhone}) => {
             <Link to={editMobilePhoneUrl}>
                 <button type="button">Edit {mobilePhone.model}</button>
             </Link>
+            
         </div>
     )
 }
