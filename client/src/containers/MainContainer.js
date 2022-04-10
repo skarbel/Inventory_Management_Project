@@ -14,7 +14,7 @@ const MainContainer = () => {
         <Router>
         <Fragment>     
         <Switch>
-          <Route path="/home" component={LogInContainer}/>
+          <Route exact path="/home" component={LogInContainer}/>
           <Route path="/api/laptops" component={LaptopContainer}/>
           <Route path="/api/tvs" component={TvContainer}/>
           <Route path="/api/mobilephones" component={MobilePhoneContainer}/>
