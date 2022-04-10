@@ -49,13 +49,13 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
 
     
 
-    // const handleManufacturer = (event) => {
-    //     const index = parseInt(event.target.value);
-    //     const selectedManufacturer = manufacturers[index];
-    //     let copiedLaptop = {...stateLaptop};
-    //     copiedLaptop['manufacturer'] = selectedManufacturer;
-    //     setStateLaptop(copiedLaptop);
-    //     }
+    const handleManufacturer = (event) => {
+        const index = parseInt(event.target.value);
+        const selectedManufacturer = manufacturers[index];
+        let copiedLaptop = {...stateLaptop};
+        copiedLaptop['manufacturer'] = selectedManufacturer;
+        setStateLaptop(copiedLaptop);
+        }
 
     const manufacturerOptions = manufacturers.map((manufacturer, index) => {
         return <option key={index} value={index}>{manufacturer}</option>
@@ -79,11 +79,12 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
         <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
         <p>Manufacturer: 
-        <select name="manufacturer" defaultValue={findLaptopManufacturerIndex() || "select-manufacturer"}>
+        <select name="manufacturer" onChange={handleManufacturer} defaultValue={findLaptopManufacturerIndex() || "select-manufacturer"}>
         <option disabled value="select-manufacturer">Manufacturer</option>
         {manufacturerOptions}
         </select>
         </p>
+    
         <p>Model:<input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateLaptop.model}/></p>
         <p>Product Number:<input type="text" placeholder="Product number" name="productNumber" onChange={handleChange} value={stateLaptop.productNumber}/></p>
         <p>Category:<input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateLaptop.category}/></p>
@@ -92,7 +93,7 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
         <p>Storage:<input type="number" placeholder="Storage" name="storage" onChange={handleChange} value={stateLaptop.storage}/></p>
         <p>In Stock:<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateLaptop.stock}/></p>
         <p>Price:<input type="number" placeholder="Selling price" name="sellingPrice" onChange={handleChange} value={stateLaptop.sellingPrice}/></p>
-        <p>Purhcase Price:<input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateLaptop.buyingPrice}/></p>
+        <p>Purchase Price:<input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateLaptop.buyingPrice}/></p>
         <p><button type="submit">Save</button></p>
         </form>
         </>
