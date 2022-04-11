@@ -47,6 +47,18 @@ const TvContainer = () => {
       .then(() => {window.location = "/api/tvs/" + tv.id})
     }
 
+    const deleteTv = idToDelete => {
+      const request = new Request();
+      request.delete("/api/tvs/", idToDelete)
+      .then(() => {
+        setTvs(tvs.filter(tv => tv.id !== idToDelete));
+        window.location = "/api/tvs"
+    
+      });
+    };
+
+    
+
 
     return (
       <Fragment>
@@ -62,7 +74,7 @@ const TvContainer = () => {
           <Route exact path="/api/tvs/:id" render={(props) => {
             const id = props.match.params.id;
             const tv = findTvByID(id); 
-            return <TvDetail tv={tv}/>
+            return <TvDetail tv={tv} deleteTv={deleteTv}/>
           }}/>
           <Route render={() => {
               return <TvList tvs={tvs}/>

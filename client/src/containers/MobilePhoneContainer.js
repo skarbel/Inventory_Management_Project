@@ -47,6 +47,16 @@ const MobilePhoneContainer = () => {
       .then(() => {window.location = "/api/mobilephones/" + mobilePhone.id})
     }
 
+    const deletePhone = idToDelete => {
+      const request = new Request();
+      request.delete("/api/mobilephones/", idToDelete)
+      .then(() => {
+        setMobilePhones(mobilePhones.filter(mobilePhone => mobilePhone.id !== idToDelete));
+        window.location = "/api/mobilephones"
+    
+      });
+    };
+
     return (
         <Router>
         <Fragment>
@@ -62,7 +72,7 @@ const MobilePhoneContainer = () => {
           <Route exact path="/api/mobilephones/:id" render={(props) => {
             const id = props.match.params.id;
             const mobilePhone = findMobilePhoneById(id);
-            return <MobilePhoneDetail mobilePhone={mobilePhone}/>
+            return <MobilePhoneDetail mobilePhone={mobilePhone} deletePhone={deletePhone}/>
           }}/>
           <Route render={() => {
             return <MobilePhoneList mobilePhones={mobilePhones}/>
