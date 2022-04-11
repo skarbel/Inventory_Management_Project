@@ -106,7 +106,8 @@ const InventoryContainer = () => {
   // })
 
   const sortManufacturerAscending = () => {
-    inventory.sort(function (a, b) {
+    const copyInventory = [...inventory]
+    copyInventory.sort(function (a, b) {
     let modelA = a.manufacturer.toUpperCase();
     let modelB = b.manufacturer.toUpperCase();
       if(modelA < modelB) {
@@ -117,10 +118,12 @@ const InventoryContainer = () => {
       }
       return 0
   });
+  setInventory(copyInventory)
 }
   
   const sortManufacturerDescending = () => {
-    inventory.sort(function (a, b) {
+    const copyInventory = [...inventory]
+    copyInventory.sort(function (a, b) {
     let modelA = a.manufacturer.toUpperCase();
     let modelB = b.manufacturer.toUpperCase();
       if(modelA < modelB) {
@@ -131,10 +134,12 @@ const InventoryContainer = () => {
       }
       return 0
   });
+  setInventory(copyInventory)
 }
   
   const sortModelAscending = () => {
-    inventory.sort(function (a, b) {
+    const copyInventory = [...inventory]
+    copyInventory.sort(function (a, b) {
     let modelA = a.model.toUpperCase();
     let modelB = b.model.toUpperCase();
       if(modelA < modelB) {
@@ -145,10 +150,12 @@ const InventoryContainer = () => {
       }
       return 0
   });
+  setInventory(copyInventory)
 }
   
   const sortModelDescending = () => {
-    inventory.sort(function (a, b) {
+    const copyInventory = [...inventory]
+    copyInventory.sort(function (a, b) {
     let modelA = a.model.toUpperCase();
     let modelB = b.model.toUpperCase();
       if(modelA < modelB) {
@@ -158,11 +165,13 @@ const InventoryContainer = () => {
         return -1;
       }
       return 0
-  });
+  })
+  setInventory(copyInventory)
 }
   
   const sortStockAscending = () => {
-    inventory.sort(function (a, b) {
+    const copyInventory = [...inventory]
+    copyInventory.sort(function (a, b) {
       let modelA = a.stock
       let modelB = b.stock
       if(modelA < modelB) {
@@ -173,10 +182,12 @@ const InventoryContainer = () => {
       }
       return 0
   });
+  setInventory(copyInventory)
 }
   
   const sortStockDescending = () => {
-    inventory.sort(function (a, b) {
+    const copyInventory = [...inventory]
+    copyInventory.sort(function (a, b) {
       let modelA = a.stock
       let modelB = b.stock
       if(modelA < modelB) {
@@ -187,6 +198,7 @@ const InventoryContainer = () => {
       }
       return 0
   });
+  setInventory(copyInventory)
 }
   
 
@@ -219,12 +231,12 @@ const InventoryContainer = () => {
       <div className="dropdown">
         <button className="dropbtn">Sort by</button>
         <div className="dropdown-content">
-          <button className="sortbtn" onClick={sortManufacturerAscending}>Manufacturer Ascending</button>
-          <button className="sortbtn" onClick={sortManufacturerDescending}>Manufacturer Descending</button>
-          <button className="sortbtn" onClick={sortModelAscending}>Model Ascending</button>
-          <button className="sortbtn" onClick={sortModelDescending}>Model Descending</button>
-          <button className="sortbtn" onClick={sortStockAscending}>Stock Ascending</button>
-          <button className="sortbtn" onClick={sortStockDescending}>Stock Descending</button>
+          <button className="sortbtn" onClick={() => sortManufacturerAscending()}>Manufacturer Ascending</button>
+          <button className="sortbtn" onClick={() => sortManufacturerDescending()}>Manufacturer Descending</button>
+          <button className="sortbtn" onClick={() => sortModelAscending()}>Model Ascending</button>
+          <button className="sortbtn" onClick={() => sortModelDescending()}>Model Descending</button>
+          <button className="sortbtn" onClick={() => sortStockAscending()}>Stock Ascending</button>
+          <button className="sortbtn" onClick={() => sortStockDescending()}>Stock Descending</button>
         </div>
         </div>
       </div>
