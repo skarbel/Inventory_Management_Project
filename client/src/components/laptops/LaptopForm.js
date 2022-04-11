@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react";
+import '../laptops/Laptop.css'
+
 
 const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
 
@@ -26,7 +28,7 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
     if(!laptop) {
         heading = "Add laptop to inventory"
     } else {
-        heading = "Edit " + laptop.model;
+        heading = "Edit " + laptop.manufacturer + " " + laptop.model;
     }
 
     const handleSubmit = (event) => {
@@ -76,7 +78,23 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
 
     return (
         <>
-        <h3>{heading}</h3>
+        <form onSubmit={handleSubmit}>
+        <div class="container ">
+            <div class="row">
+        		<div class="col-0">
+				</div>
+      			<div class="col-12">
+                  <button className="dropbtn" type="submit">Save</button>
+				</div>
+			</div>
+            <table class="table ">
+            <thead class="table-dark">
+            <tr>
+            <th scope="col">  </th>
+            <th scope="col"> {heading} </th>
+            </tr>
+            </thead>
+        {/* <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
         <p>Manufacturer: 
         <select name="manufacturer" onChange={handleManufacturer} defaultValue={findLaptopManufacturerIndex() || "select-manufacturer"}>
@@ -94,7 +112,47 @@ const LaptopForm = ({laptop, onCreate, onUpdate, manufacturers}) => {
         <p>In Stock:<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateLaptop.stock}/></p>
         <p>Price:<input type="number" placeholder="Selling price" name="sellingPrice" onChange={handleChange} value={stateLaptop.sellingPrice}/></p>
         <p>Purchase Price:<input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateLaptop.buyingPrice}/></p>
-        <p><button type="submit">Save</button></p>
+        </form>
+        </div> */}
+            <tbody>
+            <tr>
+            <td>
+                <div className="edit-details" >
+                <p>Manufacturer</p>
+                <p>Model</p>
+                <p>Product Number</p>
+                <p>Category</p>
+                <p>Screen Size</p>
+                <p>RAM</p>
+                <p>Storage</p>
+                <p>In Stock</p>
+                <p>Price</p>
+                <p>Purchase Price</p>
+                </div>
+            </td>
+            <td>
+                <p><select name="manufacturer" onChange={handleManufacturer} defaultValue={findLaptopManufacturerIndex() || "select-manufacturer"}>
+                    <option disabled value="select-manufacturer">Manufacturer</option>
+                    {manufacturerOptions}
+                    </select>
+                </p>
+                <p><input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateLaptop.model}/></p>
+                <p><input type="text" placeholder="Product number" name="productNumber" onChange={handleChange} value={stateLaptop.productNumber}/></p>
+                <p><input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateLaptop.category}/></p>
+                <p><input type="number" placeholder="Screen size" name="screenSize" onChange={handleChange} value={stateLaptop.screenSize}/></p>
+                <p><input type="number" placeholder="Ram" name="ram" onChange={handleChange} value={stateLaptop.ram}/></p>
+                <p><input type="number" placeholder="Storage" name="storage" onChange={handleChange} value={stateLaptop.storage}/></p>
+                <p><input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateLaptop.stock}/></p>
+                <p><input type="number" placeholder="Selling price" name="sellingPrice" onChange={handleChange} value={stateLaptop.sellingPrice}/></p>
+                <p><input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateLaptop.buyingPrice}/></p>
+            </td>
+            {/* <td>{laptopScreen}</td>
+            <td>{laptopPrice}</td>
+            <td>{laptopDetails}</td> */}
+            </tr>
+            </tbody>
+            </table>
+        </div>
         </form>
         </>
     )

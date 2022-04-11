@@ -1,0 +1,10 @@
+.button {
+    width: 150px;
+    height: 23px;
+    margin-top: 0px;
+    justify-content: space-between;
+}
+
+.edit-details {
+    font-size: 124%;
+}

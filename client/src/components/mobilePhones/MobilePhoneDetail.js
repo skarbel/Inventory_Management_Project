@@ -14,18 +14,25 @@ const MobilePhoneDetail = ({mobilePhone, deletePhone}) => {
     const homeUrl = "/api/inventory"
 
     return(
-        <div className="component">
-            
-            <MobilePhone mobilePhone={mobilePhone}/>
+        <>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <div className="container">
+            <div class="row">
+                <div class="col-0">
+			    </div>
+            <div class="col-12">
             <Link to={homeUrl}>
-                <button type="button">Home</button>
+                <button className="dropbtn" type="button">Home</button>
             </Link>
+            <MobilePhone mobilePhone={mobilePhone}/>
             <Link to={editMobilePhoneUrl}>
-                <button type="button">Edit {mobilePhone.model}</button>
+                <button className="dropbtn" type="button"><i class="glyphicon glyphicon-pencil"></i>  Edit</button>
             </Link>
-                <button type="button" onClick={handleDeletePhone}>Delete</button>
-            
+                <button className="dropbtn" type="button" onClick={handleDeletePhone}><i class="glyphicon glyphicon-trash"></i>  Delete</button>
         </div>
+        </div>
+        </div>
+        </>
     )
 }
 

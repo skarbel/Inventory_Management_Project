@@ -2,7 +2,7 @@ import React from 'react';
 import Laptop from './Laptop.js';
 import {Link} from 'react-router-dom';
 import { Button } from 'bootstrap';
-import '../laptops/LaptopList.css'
+import '../laptops/Laptop.css'
 
 
 const LaptopList = ({laptops}) => {

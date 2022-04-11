@@ -16,17 +16,25 @@ const LaptopDetail = ({laptop, deleteLaptop}) => {
 
 
     return (
-        <div className="component">
-            <Laptop laptop={laptop}/>
+        <>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <div className="container">
+            <div class="row">
+                <div class="col-0">
+			    </div>
+            <div class="col-12">
             <Link to={homeUrl}>
-                <button type="button">Home</button>
+                <button className="dropbtn" type="button">Home</button>
             </Link>
+            <Laptop laptop={laptop}/>
             <Link to={editUrl}>
-                <button type="button">Edit {laptop.model}</button>
+                <button className="dropbtn" type="button"><i class="glyphicon glyphicon-pencil"></i></button>
             </Link>
-            <button type="button" onClick={handleDeleteLaptop}> Delete </button>
-            
+            <button className="dropbtn" type="button" onClick={handleDeleteLaptop}><i class="glyphicon glyphicon-trash"></i></button>
+            </div>
+            </div>
         </div>
+        </>
     )
 }
 

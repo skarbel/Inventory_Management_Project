@@ -8,16 +8,16 @@ const Tv = ({tv}) => {
     }
     return (
         <Fragment>
-        <p>Manufacturer: {tv.manufacturer}</p>
-        <p>Model: {tv.model} </p>
-        <p>Product Number: {tv.productNumber}</p>
-        <p>Category: {tv.category} </p>
-        <p>Screen Size: {tv.screen}"</p>
-        <p>Screen Resolution: {tv.screenResolution}</p>
-        <p>Smart Features: {tv.smart}</p>
-        <p>In Stock: {tv.stock}</p>
-        <p>Price: {tv.sellingPrice}$ </p>
-        <p>Purchase Price: {tv.buyingPrice}$</p>
+        <p><b>Manufacturer:</b> {tv.manufacturer}</p>
+        <p><b>Model:</b> {tv.model} </p>
+        <p><b>Product Number:</b> {tv.productNumber}</p>
+        <p><b>Category:</b> {tv.category} </p>
+        <p><b>Screen Size:</b> {tv.screen}"</p>
+        <p><b>Screen Resolution:</b> {tv.screenResolution}</p>
+        <p><b>Smart Features:</b> {tv.smart}</p>
+        <p><b>In Stock:</b> {tv.stock}</p>
+        <p><b>Price:</b> {tv.sellingPrice}$ </p>
+        <p><b>Purchase Price:</b> {tv.buyingPrice}$</p>
         </Fragment>
     )
 }
