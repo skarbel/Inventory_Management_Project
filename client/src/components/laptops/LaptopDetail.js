@@ -11,14 +11,8 @@ const LaptopDetail = ({laptop, deleteLaptop}) => {
     const editUrl = "/api/laptops/" + laptop.id + "/edit"
     const homeUrl = "/api/inventory"
 
-    // const handleDelete = (laptop) => {
-    //     console.log("deleting a laptop ", laptop.id);
-    //     const request = new Request();
-    //     request.delete("api/laptops/" + laptop.id, laptop)
-    //     // .then (() => {window.location = "/api/laptops"})
-    //   }
-
-      const handleDeleteLaptop = () => deleteLaptop(laptop.id);
+   
+    const handleDeleteLaptop = () => deleteLaptop(laptop.id);
 
 
     return (

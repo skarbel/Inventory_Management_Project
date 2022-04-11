@@ -2,7 +2,7 @@ import React from "react";
 import Tv from "./Tv";
 import { Link } from "react-router-dom";
 
-const TvDetail = ({tv}) => {
+const TvDetail = ({tv, deleteTv}) => {
 
     if(!tv){
         return "Application Loading..."
@@ -10,6 +10,8 @@ const TvDetail = ({tv}) => {
 
     const editTvsUrl = "/api/tvs/" + tv.id + "/edit"
     const homeUrl = "/api/inventory"
+
+    const handleDeleteTv = () => deleteTv(tv.id);
 
     return (
         <div className="component">
@@ -20,6 +22,7 @@ const TvDetail = ({tv}) => {
             <Link to={editTvsUrl}>
                 <button type="button">Edit {tv.model}</button>
             </Link>
+            <button type="button" onClick={handleDeleteTv}>Delete</button>
         </div>
     )
 }

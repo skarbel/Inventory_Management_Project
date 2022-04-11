@@ -47,7 +47,6 @@ const handleUpdate = (laptop) => {
 }
 
 const deleteLaptop = idToDelete => {
-  console.log(idToDelete);
   const request = new Request();
   request.delete("/api/laptops/", idToDelete)
   .then(() => {
