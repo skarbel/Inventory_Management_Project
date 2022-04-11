@@ -78,6 +78,7 @@ const LaptopList = ({laptops}) => {
     })
 
 	const homeUrl = "/api/inventory"
+	const newLaptopUrl = "/api/laptops/new"
 
 	return (
 		<>
@@ -88,7 +89,10 @@ const LaptopList = ({laptops}) => {
       			<div class="col-12">
 					<Link to={homeUrl}>
                 	<button className="dropbtn" type="button">Home</button>
-            		</Link>					
+            		</Link>	
+					<Link to={newLaptopUrl}>	
+					<button className="dropbtn ">Add</button>
+					</Link>
 				</div>
 			</div>
 	 	<table class="table ">
