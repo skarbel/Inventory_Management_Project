@@ -7,6 +7,7 @@ import Link from "react-router-dom/Link";
 import '../Style/Inventory.css';
 
 
+
 const InventoryContainer = () => {
 
   const [mobilePhones, setMobilePhones] = useState ([])
@@ -99,70 +100,153 @@ const InventoryContainer = () => {
     )
   })
 
-  // const newLaptopsUrl = "/laptops/new"
-  // const newTvUrl = "/tvs/new"
-  // const newMobilePhoneUrl = "/mobilephones/new"
+  // const sortItemsByModel = document.querySelector("sort-model")
+  // sortItemsByModel.addEventListener("click", (e) => {
+  //   sortItems()
+  // })
+
+  const sortManufacturerAscending = () => {
+    inventory.sort(function (a, b) {
+    let modelA = a.manufacturer.toUpperCase();
+    let modelB = b.manufacturer.toUpperCase();
+      if(modelA < modelB) {
+        return -1;
+      }
+      if (modelA > modelB) {
+        return 1;
+      }
+      return 0
+  });
+}
+  
+  const sortManufacturerDescending = () => {
+    inventory.sort(function (a, b) {
+    let modelA = a.manufacturer.toUpperCase();
+    let modelB = b.manufacturer.toUpperCase();
+      if(modelA < modelB) {
+        return 1;
+      }
+      if (modelA > modelB) {
+        return -1;
+      }
+      return 0
+  });
+}
+  
+  const sortModelAscending = () => {
+    inventory.sort(function (a, b) {
+    let modelA = a.model.toUpperCase();
+    let modelB = b.model.toUpperCase();
+      if(modelA < modelB) {
+        return -1;
+      }
+      if (modelA > modelB) {
+        return 1;
+      }
+      return 0
+  });
+}
+  
+  const sortModelDescending = () => {
+    inventory.sort(function (a, b) {
+    let modelA = a.model.toUpperCase();
+    let modelB = b.model.toUpperCase();
+      if(modelA < modelB) {
+        return 1;
+      }
+      if (modelA > modelB) {
+        return -1;
+      }
+      return 0
+  });
+}
+  
+  const sortStockAscending = () => {
+    inventory.sort(function (a, b) {
+      let modelA = a.stock
+      let modelB = b.stock
+      if(modelA < modelB) {
+        return -1;
+      }
+      if (modelA > modelB) {
+        return 1;
+      }
+      return 0
+  });
+}
+  
+  const sortStockDescending = () => {
+    inventory.sort(function (a, b) {
+      let modelA = a.stock
+      let modelB = b.stock
+      if(modelA < modelB) {
+        return 1;
+      }
+      if (modelA > modelB) {
+        return -1;
+      }
+      return 0
+  });
+}
+  
 
 
   return(
     <>
     
 
-   
-    {/* <button type = "submit" onSubmit={window.location = "/tvs"} className="itemDetails">button name </button> */}
-
-
-<div class="container ">
-  <div class="row">
-    <div class="col-0">
-
+    
+    <div class="container ">
+      <div class="row">
+        <div class="col-0"></div>
+      <div class="col-12">
+      <div  className="dropdown">
+        <button className="dropbtn ">Add Item</button>
+        <div className="dropdown-content">
+          <a href="http://localhost:3000/api/laptops/new">Laptop</a>
+          <a href="http://localhost:3000/api/tvs/new">Television</a>
+          <a href="http://localhost:3000/api/mobilephones/new">Mobile Phone</a>
+        </div>
+      </div>  
+      <div className="dropdown">
+        <button className="dropbtn">Category</button>
+        <div className="dropdown-content">
+          <a href="http://localhost:3000/api/laptops">Laptop</a>
+          <a href="http://localhost:3000/api/tvs">Television</a>
+          <a href="http://localhost:3000/api/mobilephones">Mobile Phone</a>
+        </div>
+      </div>
+      <div className="dropdown">
+        <button className="dropbtn">Sort by</button>
+        <div className="dropdown-content">
+          <button className="sortbtn" onClick={sortManufacturerAscending}>Manufacturer Ascending</button>
+          <button className="sortbtn" onClick={sortManufacturerDescending}>Manufacturer Descending</button>
+          <button className="sortbtn" onClick={sortModelAscending}>Model Ascending</button>
+          <button className="sortbtn" onClick={sortModelDescending}>Model Descending</button>
+          <button className="sortbtn" onClick={sortStockAscending}>Stock Ascending</button>
+          <button className="sortbtn" onClick={sortStockDescending}>Stock Descending</button>
+        </div>
+        </div>
+      </div>
+      
     </div>
-
- 
-<div class="col-12">
-<div  className="dropdown">
-       <button className="dropbtn ">Add Item</button>
-      <div className="dropdown-content">
-        {/* <Link to={newLaptopsUrl}>Laptops</Link>
-        <Link to={newTvUrl}>Televisions</Link>
-        <Link to={newMobilePhoneUrl}>Mobile Phones</Link> */}
-        <a href="http://localhost:3000/api/laptops/new">Laptop</a>
-        <a href="http://localhost:3000/api/tvs/new">Television</a>
-        <a href="http://localhost:3000/api/mobilephones/new">Mobile Phone</a>
-      </div>
+    <table class="table ">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Manufacturer </th>
+          <th scope="col">Model </th>
+          <th scope="col">Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{itemManufacturer}</td>
+          <td>{itemModel}</td>
+          <td>{itemStock}</td>
+        </tr>
+      </tbody>
+    </table>
     </div>  
-     <div className="dropdown">
-       <button className="dropbtn">Category</button>
-       <div className="dropdown-content">
-        {/* { <Link to={newLaptopsUrl}>Laptops</Link>
-        <Link to={newTvUrl}>Televisions</Link>
-        <Link to={newMobilePhoneUrl}>Mobile Phones</Link> } */}
-        <a href="http://localhost:3000/api/laptops">Laptop</a>
-        <a href="http://localhost:3000/api/tvs">Television</a>
-        <a href="http://localhost:3000/api/mobilephones">Mobile Phone</a>
-      </div>
-      </div>
- </div>
-      </div>
-<table class="table ">
-  <thead class="table-dark">
-    <tr>
-    <th scope="col">Manufacturer</th>
-     <th scope="col">Model</th>
-      <th scope="col">Stock</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{itemManufacturer}</td>
-      <td>{itemModel}</td>
-      <td>{itemStock}</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
     </>
 
     
