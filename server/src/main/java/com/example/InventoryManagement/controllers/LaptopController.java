@@ -38,6 +38,12 @@ public class LaptopController {
         return new ResponseEntity<>(laptop, HttpStatus.OK);
     }
 
+    @DeleteMapping (value="/laptops/{id}")
+    public ResponseEntity<Laptop> deleteLaptop(@PathVariable Long id){
+        laptopRepository.deleteById(id);
+        return new ResponseEntity(id, HttpStatus.OK);
+    }
+
 
 }
 

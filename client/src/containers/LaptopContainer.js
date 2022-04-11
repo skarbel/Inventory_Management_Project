@@ -46,6 +46,17 @@ const handleUpdate = (laptop) => {
   .then(() => {window.location = "/api/laptops/" + laptop.id})
 }
 
+const deleteLaptop = idToDelete => {
+  console.log(idToDelete);
+  const request = new Request();
+  request.delete("/api/laptops/", idToDelete)
+  .then(() => {
+    setLaptops(laptops.filter(laptop => laptop.id !== idToDelete));
+    window.location = "/api/laptops"
+
+  });
+};
+
 return(
   <Fragment>
     <Switch>
@@ -60,7 +71,7 @@ return(
       <Route exact path="/api/laptops/:id" render={(props) => {
         const id = props.match.params.id;
         const laptop = findLaptopById(id); 
-        return <LaptopDetail laptop={laptop}/>
+        return <LaptopDetail laptop={laptop} deleteLaptop={deleteLaptop}/>
       }}/>
       <Route render={() => {
         return <LaptopList laptops={laptops}/>

@@ -17,6 +17,12 @@ class Request {
         })
     }
 
+    delete(url, id){
+        return fetch(url + id, {
+            method: "DELETE"
+        })
+    }
+
 }
 
 export default Request;
