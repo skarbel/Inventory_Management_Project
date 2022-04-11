@@ -2,7 +2,7 @@ import React from "react";
 import Laptop from "./Laptop";
 import { Link } from "react-router-dom";
 
-const LaptopDetail = ({laptop}) => {
+const LaptopDetail = ({laptop, deleteLaptop}) => {
 
     if(!laptop){
         return "Application Loading..."
@@ -10,6 +10,16 @@ const LaptopDetail = ({laptop}) => {
 
     const editUrl = "/api/laptops/" + laptop.id + "/edit"
     const homeUrl = "/api/inventory"
+
+    // const handleDelete = (laptop) => {
+    //     console.log("deleting a laptop ", laptop.id);
+    //     const request = new Request();
+    //     request.delete("api/laptops/" + laptop.id, laptop)
+    //     // .then (() => {window.location = "/api/laptops"})
+    //   }
+
+      const handleDeleteLaptop = () => deleteLaptop(laptop.id);
+
 
     return (
         <div className="component">
@@ -20,6 +30,8 @@ const LaptopDetail = ({laptop}) => {
             <Link to={editUrl}>
                 <button type="button">Edit {laptop.model}</button>
             </Link>
+            <button type="button" onClick={handleDeleteLaptop}> Delete </button>
+            
         </div>
     )
 }
