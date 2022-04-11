@@ -68,6 +68,14 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
     }
     }
 
+    const handleManufacturer = (event) => {
+        const index = parseInt(event.target.value);
+        const selectedManufacturer = manufacturers[index];
+        let copiedTv = {...stateTv};
+        copiedTv['manufacturer'] = selectedManufacturer;
+        setStateTv(copiedTv);
+        }
+
     const manufacturerOptions = manufacturers.map((manufacturer, index) => {
         return <option key={index} value={index}>{manufacturer}</option>
     })
@@ -78,7 +86,7 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
         <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
             <p>Manufacturer:
-            <select name="manufacturer"  defaultValue={findTvManufacturerIndex() || "select-manufacturer"}>
+            <select name="manufacturer" onChange={handleManufacturer} defaultValue={findTvManufacturerIndex() || "select-manufacturer"}>
                 <option disabled value="select-manufacturer">Select manufacturer</option>
                 {manufacturerOptions}
             </select>

@@ -44,6 +44,15 @@ const MobilePhoneForm = ({mobilePhone, onCreate, onUpdate, manufacturers}) => {
         setStateMobilePhone(copiedMobilePhone)
     }
 
+    const handleManufacturer = (event) => {
+        const index = parseInt(event.target.value);
+        const selectedManufacturer = manufacturers[index];
+        let copiedMobilePhone = {...stateMobilePhone};
+        copiedMobilePhone['manufacturer'] = selectedManufacturer;
+        setStateMobilePhone(copiedMobilePhone);
+        }
+
+
    const manufacturerOptions = manufacturers.map((manufacturer, index) => {
         return <option key={index} value={index}>{manufacturer}</option>
     })
@@ -66,7 +75,7 @@ const MobilePhoneForm = ({mobilePhone, onCreate, onUpdate, manufacturers}) => {
         <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
             <p>Manufacturer:
-            <select name="manufacturer" defaultValue={findMobileLaptopManufacturerIndex() || "select-manufacturer"}>
+            <select name="manufacturer" onChange={handleManufacturer} defaultValue={findMobileLaptopManufacturerIndex() || "select-manufacturer"}>
             <option disabled value="select-manufacturer">Manufacturer</option>
             {manufacturerOptions}
             </select>
@@ -78,7 +87,7 @@ const MobilePhoneForm = ({mobilePhone, onCreate, onUpdate, manufacturers}) => {
             <p>Screen Size:<input type="number" placeholder="Size" name="size" onChange={handleChange} value={stateMobilePhone.size}/></p>
             <p>In Stock:<input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateMobilePhone.stock}/></p>
             <p>Price:<input type="number" placeholder="Selling Price" name="sellingPrice" onChange={handleChange} value={stateMobilePhone.sellingPrice}/></p>
-            <p>Purchace Price:<input type="number" placeholder="Buying Price" name="buyingPrice" onChange={handleChange} value={stateMobilePhone.buyingPrice}/></p>
+            <p>Purchase Price:<input type="number" placeholder="Buying Price" name="buyingPrice" onChange={handleChange} value={stateMobilePhone.buyingPrice}/></p>
             <p><button type="submit">Save</button></p>
         </form>
         </>
