@@ -15,6 +15,11 @@ const LogInContainer = () => {
     console.log(e.target.value)
     setAccessLevel(e.target.value)
   }
+
+  function getUserName(){
+    var getInput = document.getElementById("getUser").value;
+    console.log(getInput);
+  }
     
   return(
       <div className="login-wrapper">
@@ -34,6 +39,7 @@ const LogInContainer = () => {
           </label>
           </p>
           <label>
+
            <p>Log in as {accessLevel}</p>
            <select name="userLevel" value = {accessLevel} onChange = {handleUserSelect} >
                <option value="Manager">Manager</option>
@@ -46,6 +52,7 @@ const LogInContainer = () => {
           </form>
           </div>
       </div>
+
   )
 }
 
