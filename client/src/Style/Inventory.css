@@ -1,9 +1,18 @@
  .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  
+}
+
+
+
+  .search-bar {
     background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    padding: 12px;
+    padding-right: 825px;
   }
 
   .dropdown {

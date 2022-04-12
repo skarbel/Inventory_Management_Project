@@ -18,33 +18,34 @@ const LogInContainer = () => {
     
   return(
       <div className="login-wrapper">
-      <h1>Log In Page</h1>
-      <form onSubmit={handleSelect}>
-        <p>
-        <label>
-          <p>Username</p>
-          <input type="text" required/>
-        </label>
-        </p>
-        <p>
-        <label>
-          <p>Password</p>
-          <input type="password" required/>
-        </label>
-        </p>
-        <label>
+        <div className="border">
+          <h1>Log In Page</h1>
+          <form onSubmit={handleSelect}>
+          <p>
+          <label>
+            <p>Username</p>
+            <input type="text" required/>
+          </label>
+          </p>
+          <p>
+          <label>
+            <p>Password</p>
+            <input type="password" required/>
+          </label>
+          </p>
+          <label>
            <p>Log in as {accessLevel}</p>
            <select name="userLevel" value = {accessLevel} onChange = {handleUserSelect} >
                <option value="Manager">Manager</option>
                <option value="User">User</option>
            </select>
-         </label>
-
-        <div className="submit-button">
-          <input type="submit" value="submit" />
-        </div>
-      </form>
-    </div>
+          </label>
+          <div className="submit-button">
+          <input type="submit" value="Submit" />
+          </div>
+          </form>
+          </div>
+      </div>
   )
 }
 

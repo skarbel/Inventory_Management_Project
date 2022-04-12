@@ -5,6 +5,7 @@ import MobilePhoneList from "../components/mobilePhones/MobilePhoneList";
 import TvList from "../components/tvs/Tvlist";
 import Link from "react-router-dom/Link";
 import '../Style/Inventory.css';
+import Filter from "../components/Filter";
 
 
 
@@ -14,6 +15,7 @@ const InventoryContainer = () => {
   const [laptops, setLaptops] = useState([])
   const [tvs, setTvs] = useState ([])
   const [inventory, setInventory] = useState([])
+  const [filteredInventory, setFilteredInventory] = useState([]);
 
 
   useEffect (() => {
@@ -54,11 +56,12 @@ const InventoryContainer = () => {
     if(mobilePhones.length > 0 && laptops.length > 0 && tvs.length > 0){
       let combined = [...mobilePhones, ...laptops, ...tvs];
       setInventory(combined)
+      setFilteredInventory(combined)
     }
 
   }, [mobilePhones, tvs, laptops])
   
-  const itemElements = inventory.map((item) => {
+  const itemElements = filteredInventory.map((item) => {
     return ( 
     <>
     <p>
@@ -68,7 +71,7 @@ const InventoryContainer = () => {
     )
   })
 
-  const itemCategory = inventory.map((item) => {
+  const itemCategory = filteredInventory.map((item) => {
     return(
       <>
       <p>
@@ -78,7 +81,7 @@ const InventoryContainer = () => {
     )
   })
 
-  const itemManufacturer = inventory.map((item) => {
+  const itemManufacturer = filteredInventory.map((item) => {
     return ( 
     <>
     <p>
@@ -88,7 +91,7 @@ const InventoryContainer = () => {
     )
   })
 
-  const itemModel = inventory.map((item) => {
+  const itemModel = filteredInventory.map((item) => {
     return (
       <>
       <p>
@@ -99,7 +102,7 @@ const InventoryContainer = () => {
     )
   })
   
-  const itemStock = inventory.map((item) => {
+  const itemStock = filteredInventory.map((item) => {
     return (
       <>
       <p>
@@ -116,7 +119,7 @@ const InventoryContainer = () => {
   // })
 
   const sortManufacturerAscending = () => {
-    const copyInventory = [...inventory]
+    const copyInventory = [...filteredInventory]
     copyInventory.sort(function (a, b) {
     let modelA = a.manufacturer.toUpperCase();
     let modelB = b.manufacturer.toUpperCase();
@@ -128,11 +131,11 @@ const InventoryContainer = () => {
       }
       return 0
   });
-  setInventory(copyInventory)
+  setFilteredInventory(copyInventory)
 }
   
   const sortManufacturerDescending = () => {
-    const copyInventory = [...inventory]
+    const copyInventory = [...filteredInventory]
     copyInventory.sort(function (a, b) {
     let modelA = a.manufacturer.toUpperCase();
     let modelB = b.manufacturer.toUpperCase();
@@ -144,11 +147,11 @@ const InventoryContainer = () => {
       }
       return 0
   });
-  setInventory(copyInventory)
+  setFilteredInventory(copyInventory)
 }
   
   const sortModelAscending = () => {
-    const copyInventory = [...inventory]
+    const copyInventory = [...filteredInventory]
     copyInventory.sort(function (a, b) {
     let modelA = a.model.toUpperCase();
     let modelB = b.model.toUpperCase();
@@ -160,11 +163,11 @@ const InventoryContainer = () => {
       }
       return 0
   });
-  setInventory(copyInventory)
+  setFilteredInventory(copyInventory)
 }
   
   const sortModelDescending = () => {
-    const copyInventory = [...inventory]
+    const copyInventory = [...filteredInventory]
     copyInventory.sort(function (a, b) {
     let modelA = a.model.toUpperCase();
     let modelB = b.model.toUpperCase();
@@ -176,11 +179,11 @@ const InventoryContainer = () => {
       }
       return 0
   })
-  setInventory(copyInventory)
+  setFilteredInventory(copyInventory)
 }
   
   const sortStockAscending = () => {
-    const copyInventory = [...inventory]
+    const copyInventory = [...filteredInventory]
     copyInventory.sort(function (a, b) {
       let modelA = a.stock
       let modelB = b.stock
@@ -192,11 +195,11 @@ const InventoryContainer = () => {
       }
       return 0
   });
-  setInventory(copyInventory)
+  setFilteredInventory(copyInventory)
 }
   
   const sortStockDescending = () => {
-    const copyInventory = [...inventory]
+    const copyInventory = [...filteredInventory]
     copyInventory.sort(function (a, b) {
       let modelA = a.stock
       let modelB = b.stock
@@ -208,11 +211,11 @@ const InventoryContainer = () => {
       }
       return 0
   });
-  setInventory(copyInventory)
+  setFilteredInventory(copyInventory)
   }
 
   const sortCategoryAscending = () => {
-    const copyInventory = [...inventory]
+    const copyInventory = [...filteredInventory]
     copyInventory.sort(function (a, b) {
       let modelA = a.category
       let modelB = b.category
@@ -224,11 +227,11 @@ const InventoryContainer = () => {
       }
       return 0
   });
-  setInventory(copyInventory)
+  setFilteredInventory(copyInventory)
 }
 
   const sortCategoryDescending = () => {
-    const copyInventory = [...inventory]
+    const copyInventory = [...filteredInventory]
     copyInventory.sort(function (a, b) {
       let modelA = a.category
       let modelB = b.category
@@ -240,10 +243,16 @@ const InventoryContainer = () => {
       }
       return 0
   });
-  setInventory(copyInventory)
+  setFilteredInventory(copyInventory)
   }
   
-
+  const filter = (searchTerm) => {
+    const lowerSearch = searchTerm.toLowerCase();
+    const filteredInventory = inventory.filter((inventory) => {
+      return(inventory.manufacturer.toLowerCase().indexOf(lowerSearch) > -1 || inventory.model.toLowerCase().indexOf(lowerSearch) > -1) || inventory.category.toLowerCase().indexOf(lowerSearch) > -1 
+    });
+    setFilteredInventory(filteredInventory)
+  }
 
   return(
     <>
@@ -280,6 +289,11 @@ const InventoryContainer = () => {
           <button className="sortbtn" onClick={() => sortCategoryAscending()}>Category Asc </button>
           <button className="sortbtn" onClick={() => sortCategoryDescending()}>Category Desc </button>
         </div>
+        </div>
+        <div className="dropdown">
+          <div className="search-bar">
+            <Filter handleChange={filter}/>
+          </div>
         </div>
       </div>
       
