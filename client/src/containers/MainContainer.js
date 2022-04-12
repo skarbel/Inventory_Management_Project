@@ -5,6 +5,7 @@ import TvContainer from './TvContainer';
 import MobilePhoneContainer from './MobilePhoneContainer';
 import LogInContainer from './LogInContainer';
 import InventoryContainer from './InventoryContainer';
+import '../Style/Container.css'
 
 
 
