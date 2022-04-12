@@ -6,17 +6,52 @@ const MobilePhone = ({mobilePhone}) => {
         return "Application Loading..."
     }
     return (
-        <Fragment>
-            <p><b>Manufacturer:</b> {mobilePhone.manufacturer}</p>
-            <p><b>Model:</b> {mobilePhone.model}</p>
-            <p><b>Product Number:</b> {mobilePhone.productNumber}</p>
-            <p><b>Category:</b> {mobilePhone.category}</p>
-            <p><b>Colour:</b> {mobilePhone.colour} </p>
-            <p><b>Screen Size:</b> {mobilePhone.size}"</p>
-            <p><b>In Stock:</b> {mobilePhone.stock}</p>
-            <p><b>Price:</b> {mobilePhone.sellingPrice}$ </p>
-            <p><b>Purchase Price:</b> {mobilePhone.buyingPrice}$</p>
-        </Fragment>
+        <>
+        <div className="container">
+            <div class="row">
+                <div class="col-0">
+			    </div>
+                <div class="col-12"></div>
+                <table class="table ">
+            <thead class="table-dark">
+            <tr>
+            <th scope="col">  </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>
+            <p><b>Manufacturer:</b> </p>
+            <p><b>Model:</b> </p>
+            <p><b>Product Number:</b> </p>
+            <p><b>Category:</b> </p>
+            <p><b>Colour:</b>  </p>
+            <p><b>Screen Size:</b> </p>
+            <p><b>In Stock:</b> </p>
+            <p><b>Price:</b>  </p>
+            <p><b>Purchase Price:</b> </p>
+            </td>
+            <td>
+            <p>{mobilePhone.manufacturer}</p>
+            <p>{mobilePhone.model}</p>
+            <p>{mobilePhone.productNumber}</p>
+            <p>{mobilePhone.category}</p>
+            <p>{mobilePhone.colour}</p>
+            <p>{mobilePhone.size}"</p>
+            <p>{mobilePhone.stock}</p>
+            <p>{mobilePhone.sellingPrice}$</p>
+            <p>{mobilePhone.buyingPrice}$</p>
+            </td>
+            </tr>
+            </tbody>
+                    </table>
+                 </div>
+            </div>
+        </>
 
     )
 }

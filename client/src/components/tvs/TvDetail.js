@@ -9,10 +9,10 @@ const TvDetail = ({tv, deleteTv}) => {
     }
 
     const editTvsUrl = "/api/tvs/" + tv.id + "/edit"
-    const homeUrl = "/api/inventory"
+    const backUrl = "/api/tvs"
 
     const handleDeleteTv = () => {
-        let result = window.confirm("Are you sure to delete?");
+        let result = window.confirm("Are you sure you want to delete?");
     if(result){
         deleteTv(tv.id);
         }
@@ -27,16 +27,14 @@ const TvDetail = ({tv, deleteTv}) => {
 			    </div>
             <div class="col-12">
             
-            <Link to={homeUrl}>
-                <button className="dropbtn" type="button">Home</button>
+            <Link to={backUrl}>
+                <button className="dropbtn" type="button">Back</button>
             </Link>
             <Tv tv={tv}/>
             <Link to={editTvsUrl}>
-                <button className="dropbtn" type="button"><i class="glyphicon glyphicon-pencil"></i></button>
+                <button className="dropbtn" type="button"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
             </Link>
-            <button className="dropbtn" type="button" onClick={handleDeleteTv} ><i class="glyphicon glyphicon-trash"></i></button>
-            
-            
+            <button className="dropbtn" type="button" onClick={handleDeleteTv} ><i class="glyphicon glyphicon-trash"></i> Delete</button>
             </div>
             </div>
         </div>

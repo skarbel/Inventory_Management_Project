@@ -9,10 +9,15 @@ const LaptopDetail = ({laptop, deleteLaptop}) => {
     }
 
     const editUrl = "/api/laptops/" + laptop.id + "/edit"
-    const homeUrl = "/api/inventory"
+    const backUrl = "/api/laptops"
 
    
-    const handleDeleteLaptop = () => deleteLaptop(laptop.id);
+    const handleDeleteLaptop = () => {
+        let result = window.confirm("Are you sure you want to delete");
+        if(result){
+            deleteLaptop(laptop.id);
+        }
+    }
 
 
     return (
@@ -23,14 +28,14 @@ const LaptopDetail = ({laptop, deleteLaptop}) => {
                 <div class="col-0">
 			    </div>
             <div class="col-12">
-            <Link to={homeUrl}>
-                <button className="dropbtn" type="button">Home</button>
+            <Link to={backUrl}>
+                <button className="dropbtn" type="button">Back</button>
             </Link>
             <Laptop laptop={laptop}/>
             <Link to={editUrl}>
-                <button className="dropbtn" type="button"><i class="glyphicon glyphicon-pencil"></i></button>
+                <button className="dropbtn" type="button"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
             </Link>
-            <button className="dropbtn" type="button" onClick={handleDeleteLaptop}><i class="glyphicon glyphicon-trash"></i></button>
+            <button className="dropbtn" type="button" onClick={handleDeleteLaptop}><i class="glyphicon glyphicon-trash"></i> Delete</button>
             </div>
             </div>
         </div>

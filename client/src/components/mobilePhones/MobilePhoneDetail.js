@@ -8,10 +8,15 @@ const MobilePhoneDetail = ({mobilePhone, deletePhone}) => {
         return "Application Loading..."
     }
 
-    const handleDeletePhone = () => deletePhone(mobilePhone.id);
+    const handleDeletePhone = () => {
+        let result = window.confirm("Are you sure you want to delete");
+        if(result){
+            deletePhone(mobilePhone.id);
+        }
+    };
 
+    const backUrl = "/api/mobilephones"
     const editMobilePhoneUrl = "/api/mobilephones/" + mobilePhone.id + "/edit"
-    const homeUrl = "/api/inventory"
 
     return(
         <>
@@ -21,8 +26,8 @@ const MobilePhoneDetail = ({mobilePhone, deletePhone}) => {
                 <div class="col-0">
 			    </div>
             <div class="col-12">
-            <Link to={homeUrl}>
-                <button className="dropbtn" type="button">Home</button>
+            <Link to={backUrl}>
+                <button className="dropbtn" type="button">Back</button>
             </Link>
             <MobilePhone mobilePhone={mobilePhone}/>
             <Link to={editMobilePhoneUrl}>
