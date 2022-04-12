@@ -15,6 +15,11 @@ const LogInContainer = () => {
     console.log(e.target.value)
     setAccessLevel(e.target.value)
   }
+
+  function getUserName(){
+    var getInput = document.getElementById("getUser").value;
+    console.log(getInput);
+  }
     
   return(
       <div className="login-wrapper">
@@ -23,7 +28,7 @@ const LogInContainer = () => {
         <p>
         <label>
           <p>Username</p>
-          <input type="text" required/>
+          <input type="text" required id="getUser"/>
         </label>
         </p>
         <p>
@@ -41,7 +46,7 @@ const LogInContainer = () => {
          </label>
 
         <div className="submit-button">
-          <input type="submit" value="submit" />
+          <input type="submit" value="submit" onClick = {getUserName}/>
         </div>
       </form>
     </div>
