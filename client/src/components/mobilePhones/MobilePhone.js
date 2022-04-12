@@ -6,17 +6,52 @@ const MobilePhone = ({mobilePhone}) => {
         return "Application Loading..."
     }
     return (
-        <Fragment>
-            <p>Manufacturer: {mobilePhone.manufacturer}</p>
-            <p>Model: {mobilePhone.model}</p>
-            <p>Product Number: {mobilePhone.productNumber}</p>
-            <p>Category: {mobilePhone.category}</p>
-            <p>Colour: {mobilePhone.colour} </p>
-            <p>Screen Size: {mobilePhone.size}"</p>
-            <p>In Stock: {mobilePhone.stock}</p>
-            <p>Price: {mobilePhone.sellingPrice}$ </p>
-            <p>Purchase Price: {mobilePhone.buyingPrice}$</p>
-        </Fragment>
+        <>
+        <div className="container">
+            <div class="row">
+                <div class="col-0">
+			    </div>
+                <div class="col-12"></div>
+                <table class="table ">
+            <thead class="table-dark">
+            <tr>
+            <th scope="col">  </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>
+            <p><b>Manufacturer:</b> </p>
+            <p><b>Model:</b> </p>
+            <p><b>Product Number:</b> </p>
+            <p><b>Category:</b> </p>
+            <p><b>Colour:</b>  </p>
+            <p><b>Screen Size:</b> </p>
+            <p><b>In Stock:</b> </p>
+            <p><b>Price:</b>  </p>
+            <p><b>Purchase Price:</b> </p>
+            </td>
+            <td>
+            <p>{mobilePhone.manufacturer}</p>
+            <p>{mobilePhone.model}</p>
+            <p>{mobilePhone.productNumber}</p>
+            <p>{mobilePhone.category}</p>
+            <p>{mobilePhone.colour}</p>
+            <p>{mobilePhone.size}"</p>
+            <p>{mobilePhone.stock}</p>
+            <p>{mobilePhone.sellingPrice}$</p>
+            <p>{mobilePhone.buyingPrice}$</p>
+            </td>
+            </tr>
+            </tbody>
+                    </table>
+                 </div>
+            </div>
+        </>
 
     )
 }

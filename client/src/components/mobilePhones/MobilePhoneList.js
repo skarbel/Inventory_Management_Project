@@ -1,6 +1,6 @@
 import React from 'react';
 import MobilePhone from './MobilePhone.js';
-import Link from 'react-router-dom/Link';
+import {Link} from 'react-router-dom';
 
 const MobilePhoneList = ({mobilePhones}) => {
 
@@ -83,9 +83,9 @@ const MobilePhoneList = ({mobilePhones}) => {
         		<div class="col-0">
 				    </div>
       			<div class="col-12">
-					      <Link to={homeUrl}>
-                	<button className="dropbtn" type="button">Home</button>
-            		</Link>	
+                <Link to={homeUrl}>
+                <button className="dropbtn" type="button">Home</button>
+            		</Link>		
 					      <Link to={newPhoneUrl}>	
 					      <button className="dropbtn ">Add</button>
 					      </Link>

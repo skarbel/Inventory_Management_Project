@@ -9,21 +9,37 @@ const TvDetail = ({tv, deleteTv}) => {
     }
 
     const editTvsUrl = "/api/tvs/" + tv.id + "/edit"
-    const homeUrl = "/api/inventory"
+    const backUrl = "/api/tvs"
 
-    const handleDeleteTv = () => deleteTv(tv.id);
+    const handleDeleteTv = () => {
+        let result = window.confirm("Are you sure you want to delete?");
+    if(result){
+        deleteTv(tv.id);
+        }
+    }
 
     return (
-        <div className="component">
+        <>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <div className="container">
+            <div class="row">
+                <div class="col-0">
+			    </div>
+            <div class="col-12">
+            
+            <Link to={backUrl}>
+                <button className="dropbtn" type="button">Back</button>
+            </Link>
             <Tv tv={tv}/>
-            <Link to={homeUrl}>
-                <button type="button">Home</button>
-            </Link>
             <Link to={editTvsUrl}>
-                <button type="button">Edit {tv.model}</button>
+                <button className="dropbtn" type="button"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
             </Link>
-            <button type="button" onClick={handleDeleteTv}>Delete</button>
+            <button className="dropbtn" type="button" onClick={handleDeleteTv} ><i class="glyphicon glyphicon-trash"></i> Delete</button>
+            </div>
+            </div>
         </div>
+        </>
+        
     )
 }
 

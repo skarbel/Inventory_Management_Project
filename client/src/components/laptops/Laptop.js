@@ -7,18 +7,54 @@ const Laptop = ({laptop})  => {
         return "Application Loading..."
     }
     return (
-        <Fragment>
-        <p>Manufacturer: {laptop.manufacturer}</p>
-        <p>Model: {laptop.model}</p>
-        <p>Product Number: {laptop.productNumber}</p>
-        <p>Category: {laptop.category}</p>
-        <p>Screen Size: {laptop.screenSize}"</p>
-        <p>RAM: {laptop.ram}GB</p>
-        <p>Storage: {laptop.storage}</p>
-        <p>In Stock: {laptop.stock}</p>
-        <p>Price: {laptop.sellingPrice}$</p>
-        <p>Purchase Price: {laptop.buyingPrice}$</p>
-        </Fragment>
+        <>
+         <div className="container">
+            <div class="row">
+                <div class="col-0">
+			    </div>
+                <div class="col-12"></div>
+                <table class="table ">
+            <thead class="table-dark">
+            <tr>
+            <th scope="col">  </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>
+                    <p><b>Manufacturer:</b> </p>
+                    <p><b>Model:</b> </p>
+                    <p><b>Product Number:</b> </p>
+                    <p><b>Category:</b> </p>
+                    <p><b>Screen Size:</b> </p>
+                    <p><b>RAM:</b> </p>
+                    <p><b>Storage:</b> </p>
+                    <p><b>In Stock:</b> </p>
+                    <p><b>Price:</b> </p>
+                    <p><b>Purchase Price:</b> </p>
+            </td>
+            <td>
+            <p>{laptop.manufacturer}</p>
+            <p>{laptop.model}</p>
+            <p>{laptop.productNumber}</p>
+            <p>{laptop.category}</p>
+            <p>{laptop.screenSize}"</p>
+            <p>{laptop.ram}</p>
+            <p>{laptop.storage}GB</p>
+            <p>{laptop.stock}</p>
+            <p>{laptop.sellingPrice}$</p>
+            <p>{laptop.buyingPrice}$</p>
+            </td>
+            </tr>
+            </tbody>
+                    </table>
+                 </div>
+            </div>
+        </>
     )
 }
 export default Laptop;

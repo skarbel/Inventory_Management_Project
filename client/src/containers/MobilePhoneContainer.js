@@ -58,7 +58,6 @@ const MobilePhoneContainer = () => {
     };
 
     return (
-        <Router>
         <Fragment>
           <Switch>
           <Route exact path="/api/mobilephones/new" render={() => {
@@ -79,7 +78,6 @@ const MobilePhoneContainer = () => {
           }}/>
           </Switch>
         </Fragment>
-      </Router>
     )
 }
 export default MobilePhoneContainer;

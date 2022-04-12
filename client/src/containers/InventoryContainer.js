@@ -68,6 +68,16 @@ const InventoryContainer = () => {
     )
   })
 
+  const itemCategory = inventory.map((item) => {
+    return(
+      <>
+      <p>
+        <b>{item.category}</b>
+      </p>
+      </>
+    )
+  })
+
   const itemManufacturer = inventory.map((item) => {
     return ( 
     <>
@@ -199,15 +209,45 @@ const InventoryContainer = () => {
       return 0
   });
   setInventory(copyInventory)
+  }
+
+  const sortCategoryAscending = () => {
+    const copyInventory = [...inventory]
+    copyInventory.sort(function (a, b) {
+      let modelA = a.category
+      let modelB = b.category
+      if(modelA < modelB) {
+        return -1;
+      }
+      if (modelA > modelB) {
+        return 1;
+      }
+      return 0
+  });
+  setInventory(copyInventory)
 }
+
+  const sortCategoryDescending = () => {
+    const copyInventory = [...inventory]
+    copyInventory.sort(function (a, b) {
+      let modelA = a.category
+      let modelB = b.category
+      if(modelA < modelB) {
+        return 1;
+      }
+      if (modelA > modelB) {
+        return -1;
+      }
+      return 0
+  });
+  setInventory(copyInventory)
+  }
   
 
 
   return(
     <>
-    
 
-    
     <div class="container ">
       <div class="row">
         <div class="col-0"></div>
@@ -231,12 +271,14 @@ const InventoryContainer = () => {
       <div className="dropdown">
         <button className="dropbtn">Sort by</button>
         <div className="dropdown-content">
-          <button className="sortbtn" onClick={() => sortManufacturerAscending()}>Manufacturer Ascending</button>
-          <button className="sortbtn" onClick={() => sortManufacturerDescending()}>Manufacturer Descending</button>
-          <button className="sortbtn" onClick={() => sortModelAscending()}>Model Ascending</button>
-          <button className="sortbtn" onClick={() => sortModelDescending()}>Model Descending</button>
-          <button className="sortbtn" onClick={() => sortStockAscending()}>Stock Ascending</button>
-          <button className="sortbtn" onClick={() => sortStockDescending()}>Stock Descending</button>
+          <button className="sortbtn" onClick={() => sortManufacturerAscending()}>Manufacturer Asc </button>
+          <button className="sortbtn" onClick={() => sortManufacturerDescending()}>Manufacturer Desc </button>
+          <button className="sortbtn" onClick={() => sortModelAscending()}>Model Asc </button>
+          <button className="sortbtn" onClick={() => sortModelDescending()}>Model Desc </button>
+          <button className="sortbtn" onClick={() => sortStockAscending()}>Stock Asc </button>
+          <button className="sortbtn" onClick={() => sortStockDescending()}>Stock Desc </button>
+          <button className="sortbtn" onClick={() => sortCategoryAscending()}>Category Asc </button>
+          <button className="sortbtn" onClick={() => sortCategoryDescending()}>Category Desc </button>
         </div>
         </div>
       </div>
@@ -247,6 +289,7 @@ const InventoryContainer = () => {
         <tr>
           <th scope="col">Manufacturer </th>
           <th scope="col">Model </th>
+          <th scope="col">Category </th>
           <th scope="col">Stock</th>
         </tr>
       </thead>
@@ -254,6 +297,7 @@ const InventoryContainer = () => {
         <tr>
           <td>{itemManufacturer}</td>
           <td>{itemModel}</td>
+          <td>{itemCategory}</td>
           <td>{itemStock}</td>
         </tr>
       </tbody>

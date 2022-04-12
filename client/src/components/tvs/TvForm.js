@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import { useState } from "react";
 
+
 const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
 
     const [stateTv, setStateTv] = useState({
@@ -83,7 +84,7 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
 
     return(
         <>
-        <h3>{heading}</h3>
+        {/* <h3>{heading}</h3>
         <form onSubmit={handleSubmit}>
             <p>Manufacturer:
             <select name="manufacturer" onChange={handleManufacturer} defaultValue={findTvManufacturerIndex() || "select-manufacturer"}>
@@ -108,7 +109,79 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
             <p>Purchase Price:<input type="number" placeholder="Buying Price" name="buyingPrice" onChange={handleChange} value={stateTv.buyingPrice}/></p>
             
             <p><button type="submit">Save</button></p>
+        </form> */}
+
+<form onSubmit={handleSubmit}>
+        <div class="container ">
+            <div class="row">
+        		<div class="col-0">
+				</div>
+      			<div class="col-12">
+                  <button className="dropbtn" type="submit">Save</button>
+				</div>
+			</div>
+            <table class="table ">
+            <thead class="table-dark">
+            <tr>
+            <th scope="col">  </th>
+            <th scope="col"> {heading} </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>
+                <div className="edit-details" >
+                <p>Manufacturer</p>
+                <p>Model</p>
+                <p>Product Number</p>
+                <p>Category</p>
+                <p>Screen Size</p>
+                <p>Screen Resolution</p>
+                <p>Smart</p>
+                <p>In Stock</p>
+                <p>Price</p>
+                <p>Purchase Price</p>
+                </div>
+            </td>
+            <td>
+                <p><select name="manufacturer" onChange={handleManufacturer} defaultValue={findTvManufacturerIndex() || "select-manufacturer"}>
+                <option disabled value="select-manufacturer">Select manufacturer</option>
+                {manufacturerOptions}
+                    </select>
+                </p>
+                <p><input type="text" placeholder="Model" name="model" onChange={handleChange} value={stateTv.model}/></p>
+                <p><input type="text" placeholder="Product Number" name="productNumber" onChange={handleChange} value={stateTv.productNumber}/></p>
+                <p><input type="text" placeholder="Category" name="category" onChange={handleChange} value={stateTv.category}/></p>
+                <p><input type="number" placeholder="Screen" name="screen" onChange={handleChange} value={stateTv.screen}/></p>
+                <p><input type="text" placeholder="Screen Resolution" name="screenResolution" onChange={handleChange} value={stateTv.screenResolution}/></p>
+                <p>
+                <select name="is-smart"  defaultValue={isSmart()||"select a value"}>
+                <option disabled value="select-smart">Smart TV?</option>
+                <option key='0' value='yes'>yes</option>
+                <option key='1' value='no'>no</option>
+                </select>
+                </p>
+                <p><input type="number" placeholder="Stock" name="stock" onChange={handleChange} value={stateTv.stock}/></p>
+                <p><input type="number" placeholder="Selling price" name="sellingPrice" onChange={handleChange} value={stateTv.sellingPrice}/></p>
+                <p><input type="number" placeholder="Buying price" name="buyingPrice" onChange={handleChange} value={stateTv.buyingPrice}/></p>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
         </form>
+
+
+
+
+
+
+        
+
+
+
+
+
         
         </>
     )
