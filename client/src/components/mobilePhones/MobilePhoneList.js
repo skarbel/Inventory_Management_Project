@@ -1,6 +1,7 @@
 import React from 'react';
 import MobilePhone from './MobilePhone.js';
 import {Link} from 'react-router-dom';
+import '../mobilePhones/MobilePhone.css'
 
 const MobilePhoneList = ({mobilePhones}) => {
 
@@ -78,17 +79,20 @@ const MobilePhoneList = ({mobilePhones}) => {
 
     return (
         <>
+        <div className='background'>
 		    <div class="container ">
       		<div class="row">
         		<div class="col-0">
 				    </div>
       			<div class="col-12">
+            <div className="dropbtn">
                 <Link to={homeUrl}>
-                <button className="dropbtn" type="button">Home</button>
+                <button className="homebtn" type="button">Home</button>
             		</Link>		
 					      <Link to={newPhoneUrl}>	
-					      <button className="dropbtn ">Add</button>
+					      <button className="addbtn ">Add</button>
 					      </Link>
+                </div>
 				    </div>
 			  </div>
 	 	    <table class="table ">
@@ -112,7 +116,7 @@ const MobilePhoneList = ({mobilePhones}) => {
       	</tbody>
     	</table>
 		</div>
-
+    </div>
 		</>
     )
 }

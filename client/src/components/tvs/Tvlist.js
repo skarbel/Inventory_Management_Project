@@ -1,6 +1,7 @@
 import React from 'react';
 import Tv from './Tv.js'
 import Link from 'react-router-dom/Link';
+import '../tvs/Tv.css'
 
 
 const TvList = ({ tvs }) => {
@@ -89,17 +90,20 @@ const TvList = ({ tvs }) => {
 
     return (
         <>
-		<div class="container ">
+        <div className='background'>
+		    <div class="container ">
       		<div class="row">
         		<div class="col-0">
 				</div>
       			<div class="col-12">
-					<Link to={homeUrl}>
-                	<button className="dropbtn" type="button">Home</button>
-            		</Link>	
-					<Link to={newtvUrl}>	
-					<button className="dropbtn ">Add</button>
-					</Link>
+              <div className="dropbtn">
+					    <Link to={homeUrl}>
+              	<button className="homebtn" type="button">Home</button>
+            	</Link>	
+					    <Link to={newtvUrl}>	
+					    <button className="addbtn ">Add</button>
+					    </Link>
+              </div>
 				</div>
 			</div>
 	 	<table class="table ">
@@ -125,7 +129,7 @@ const TvList = ({ tvs }) => {
       	</tbody>
     	</table>
 		</div>
-
+    </div>
 		</>
     )
 }

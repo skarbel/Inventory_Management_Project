@@ -82,17 +82,20 @@ const LaptopList = ({laptops}) => {
 
 	return (
 		<>
+		<div className='background'>
 		<div class="container ">
       		<div class="row">
         		<div class="col-0">
 				</div>
       			<div class="col-12">
+				<div className="dropbtn">
 					<Link to={homeUrl}>
-                	<button className="dropbtn" type="button">Home</button>
+                	<button className="homebtn" type="button">Home</button>
             		</Link>	
 					<Link to={newLaptopUrl}>	
-					<button className="dropbtn ">Add</button>
+					<button className="addbtn ">Add</button>
 					</Link>
+				</div>
 				</div>
 			</div>
 	 	<table class="table ">
@@ -116,7 +119,7 @@ const LaptopList = ({laptops}) => {
       	</tbody>
     	</table>
 		</div>
-
+		</div>
 		</>
 	)
 }
