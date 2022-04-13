@@ -1,5 +1,9 @@
 import React, {useEffect} from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import '../tvs/Tv.css'
+
+
 
 
 const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
@@ -81,6 +85,7 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
         return <option key={index} value={index}>{manufacturer}</option>
     })
 
+    const backUrl = "/api/tvs"
 
     return(
         <>
@@ -110,15 +115,20 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
             
             <p><button type="submit">Save</button></p>
         </form> */}
-
+<div className="background">
 <form onSubmit={handleSubmit}>
         <div class="container ">
             <div class="row">
         		<div class="col-0">
 				</div>
       			<div class="col-12">
-                  <button className="dropbtn" type="submit">Save</button>
-				</div>
+                    <div className="dropbtn">
+                    <Link to={backUrl}>
+                    <button className="backbtn" type="button">Back</button>
+                    </Link>
+                    <button className="savebtn" type="submit">Save</button>
+                    </div>
+               </div>
 			</div>
             <table class="table ">
             <thead class="table-dark">
@@ -170,6 +180,7 @@ const TvForm = ({tv, onCreate, onUpdate, manufacturers}) => {
             </table>
         </div>
         </form>
+        </div>
 
 
 

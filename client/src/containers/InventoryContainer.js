@@ -254,9 +254,11 @@ const InventoryContainer = () => {
     setFilteredInventory(filteredInventory)
   }
 
+  const logOutUrl = "/home"
+
   return(
     <>
-
+    <div className="background">
     <div class="container ">
       <div class="row">
         <div class="col-0"></div>
@@ -295,6 +297,13 @@ const InventoryContainer = () => {
             <Filter handleChange={filter}/>
           </div>
         </div>
+        <div className="dropdown">
+          <div className="log-out">
+            <Link to={logOutUrl}>
+            <button className="dropbtn" type="button">Log out</button>
+            </Link>
+          </div>
+        </div>
       </div>
       
     </div>
@@ -317,6 +326,7 @@ const InventoryContainer = () => {
       </tbody>
     </table>
     </div>  
+    </div>
     </>
 
     

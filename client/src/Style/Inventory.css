@@ -1,5 +1,12 @@
-.back-container {
-  background-color: rgb(232, 238, 240);
+.background {
+  background-color: rgb(110, 114, 110);
+  border: solid; 
+    border-color: transparent; 
+    overflow: scroll;
+}
+
+.container {
+  background-color: rgb(230, 235, 237);
 }
 
 .dropbtn {
@@ -10,14 +17,63 @@
  border: none;
 }
 
-.container {
-     
+.backbtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
 }
+
+.homebtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+.addbtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+
+.savebtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+.editbtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+.deletebtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+
+.version {
+  font-size: 10px;
+  position: absolute;
+  bottom: 39%;
+  right: 40%;
+}
+
+/* .row {
+  font-size: 20px;
+} */
 
  .search-bar {
    background-color: #04AA6D;
    padding: 12px;
-   padding-right: 825px;
+   padding-right: 740px;
+
+   /* border-radius: 300px; */
+ 
  }
 
  .dropdown {
