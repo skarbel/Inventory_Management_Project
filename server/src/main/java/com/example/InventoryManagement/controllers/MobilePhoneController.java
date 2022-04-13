@@ -38,4 +38,10 @@ public class MobilePhoneController {
         mobilePhoneRepository.save(mobilePhone);
         return new ResponseEntity<>(mobilePhone, HttpStatus.OK);
     }
+
+    @DeleteMapping (value="/mobilephones/{id}")
+    public ResponseEntity<MobilePhone> deleteMobilePhone(@PathVariable Long id){
+        mobilePhoneRepository.deleteById(id);
+        return new ResponseEntity(id, HttpStatus.OK);
+    }
 }

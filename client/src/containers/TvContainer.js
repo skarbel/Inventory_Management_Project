@@ -3,6 +3,7 @@ import TvList from '../components/tvs/Tvlist';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import TvForm from "../components/tvs/TvForm";
 import TvDetail from "../components/tvs/TvDetail"
+import Request from "../helpers/request";
 
 
 const TvContainer = () => {
@@ -15,15 +16,14 @@ const TvContainer = () => {
         fetchManufacturers();
     },[])
     
-
     const fetchTvs = () => {
-        fetch('http://localhost:8080/api/tvs')
+        fetch('/api/tvs')
         .then(response => response.json())
         .then(data => setTvs(data))
     }
 
     const fetchManufacturers = () => {
-      fetch('http://localhost:8080/api/inventory/manufacturer')
+      fetch('/api/inventory/manufacturer')
       .then(response => response.json())
       .then(data => setManufacturers(data))
     }
@@ -38,39 +38,49 @@ const TvContainer = () => {
       const request = new Request();
       const url = "/api/tvs";
       request.post(url, tv)
-      .then(() => {window.location = "/tvs"})
+      .then(() => {window.location = "/api/tvs"})
     }
 
     const handleUpdate = (tv) => {
       const request = new Request();
-      request.patch("/api/tvs" + tv.id, tv)
-      .then(() => {window.location = "/tvs" + tv.id})
+      request.patch("/api/tvs/" + tv.id, tv)
+      .then(() => {window.location = "/api/tvs/" + tv.id})
     }
+
+    const deleteTv = idToDelete => {
+      const request = new Request();
+      request.delete("/api/tvs/", idToDelete)
+      .then(() => {
+        setTvs(tvs.filter(tv => tv.id !== idToDelete));
+        window.location = "/api/tvs"
+    
+      });
+    };
+
+    
 
 
     return (
-      <Router>
       <Fragment>
         <Switch>
-          <Route exact path="/tvs/new" render={() =>{
-            return <TvForm manufacturers={manufacturers}/>  
+          <Route exact path="/api/tvs/new" render={() =>{
+            return <TvForm onCreate={handlePost} manufacturers={manufacturers}/>  
           }}/>
-          <Route exact path="/tvs/:id/edit" render={(props) => {
+          <Route exact path="/api/tvs/:id/edit" render={(props) => {
             const id = props.match.params.id;
             const tv = findTvByID(id);
-            return <TvForm tv={tv} onUpdate={handleUpdate}/>
+            return <TvForm tv={tv} onUpdate={handleUpdate} manufacturers={manufacturers}/>
           }}/>
-          <Route exact path="/tvs/:id" render={(props) => {
+          <Route exact path="/api/tvs/:id" render={(props) => {
             const id = props.match.params.id;
             const tv = findTvByID(id); 
-            return <TvDetail tv={tv}/>
+            return <TvDetail tv={tv} deleteTv={deleteTv}/>
           }}/>
           <Route render={() => {
               return <TvList tvs={tvs}/>
           }}/>
         </Switch>
       </Fragment>
-      </Router>
     )
 }
 export default TvContainer;

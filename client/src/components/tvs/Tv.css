@@ -1,0 +1,20 @@
+.button {
+    width: 150px;
+    height: 23px;
+    margin-top: 0px;
+    justify-content: space-between;
+}
+
+.edit-details {
+    font-size: 124%;
+}
+
+.background {
+    background-color: rgb(110, 114, 110);
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+  }
+  

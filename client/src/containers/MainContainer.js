@@ -5,6 +5,7 @@ import TvContainer from './TvContainer';
 import MobilePhoneContainer from './MobilePhoneContainer';
 import LogInContainer from './LogInContainer';
 import InventoryContainer from './InventoryContainer';
+import '../Style/Container.css'
 
 
 
@@ -14,11 +15,11 @@ const MainContainer = () => {
         <Router>
         <Fragment>     
         <Switch>
-          <Route path="/home" component={LogInContainer}/>
-          <Route path="/laptops" component={LaptopContainer}/>
-          <Route path="/tvs" component={TvContainer}/>
-          <Route path="/mobilephones" component={MobilePhoneContainer}/>
-          <Route path="/inventory" component={InventoryContainer}/>        
+          <Route exact path="/home" component={LogInContainer}/>
+          <Route path="/api/laptops" component={LaptopContainer}/>
+          <Route path="/api/tvs" component={TvContainer}/>
+          <Route path="/api/mobilephones" component={MobilePhoneContainer}/>
+          <Route path="/api/inventory" component={InventoryContainer}/>        
         </Switch>
         </Fragment>
         </Router>

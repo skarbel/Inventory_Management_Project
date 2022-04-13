@@ -38,4 +38,10 @@ public class TvController {
         return new ResponseEntity<>( tv, HttpStatus.OK);
     }
 
+    @DeleteMapping (value="/tvs/{id}")
+    public ResponseEntity<TV> deleteTv(@PathVariable Long id){
+        tvRepository.deleteById(id);
+        return new ResponseEntity(id, HttpStatus.OK);
+    }
+
 }

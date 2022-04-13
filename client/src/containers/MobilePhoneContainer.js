@@ -3,6 +3,7 @@ import MobilePhoneList from '../components/mobilePhones/MobilePhoneList';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MobilePhoneForm from "../components/mobilePhones/MobilePhoneForm";
 import MobilePhoneDetail from '../components/mobilePhones/MobilePhoneDetail';
+import Request from "../helpers/request";
 
 const MobilePhoneContainer = () => {
 
@@ -16,13 +17,13 @@ const MobilePhoneContainer = () => {
     
 
     const fetchMobilePhones = () => {
-        fetch('http://localhost:8080/api/mobilephones')
+        fetch('/api/mobilephones')
         .then(response => response.json())
         .then(data => setMobilePhones(data))
     }
 
     const fetchManufacturers = () => {
-      fetch('http://localhost:8080/api/inventory/manufacturer')
+      fetch('/api/inventory/manufacturer')
       .then(response => response.json())
       .then(data => setManufacturers(data))
     }
@@ -35,40 +36,48 @@ const MobilePhoneContainer = () => {
 
     const handlePost = (mobilePhone) => {
       const request = new Request();
-      const url = "/api/mobilephones";
+      const url = '/api/mobilephones';
       request.post(url, mobilePhone)
-      .then(() => {window.location = "/mobilephones"})
+      .then(() => {window.location = "/api/mobilephones"})
     }
 
     const handleUpdate = (mobilePhone) => {
       const request = new Request();
       request.patch("/api/mobilephones/" + mobilePhone.id, mobilePhone)
-      .then(() => {window.location = "/mobilephones/" + mobilePhone.id})
+      .then(() => {window.location = "/api/mobilephones/" + mobilePhone.id})
     }
 
+    const deletePhone = idToDelete => {
+      const request = new Request();
+      request.delete("/api/mobilephones/", idToDelete)
+      .then(() => {
+        setMobilePhones(mobilePhones.filter(mobilePhone => mobilePhone.id !== idToDelete));
+        window.location = "/api/mobilephones"
+    
+      });
+    };
+
     return (
-        <Router>
         <Fragment>
           <Switch>
-          <Route exact path="/mobilephones/new" render={() => {
+          <Route exact path="/api/mobilephones/new" render={() => {
             return <MobilePhoneForm onCreate={handlePost} manufacturers ={manufacturers}/>
           }}/>
-          <Route exact path="/mobilephones/:id/edit" render={(props) => {
+          <Route exact path="/api/mobilephones/:id/edit" render={(props) => {
             const id = props.match.params.id;
             const mobilePhone = findMobilePhoneById(id);
-            return <MobilePhoneForm mobilePhone={mobilePhone} onUpdate={handleUpdate}/>
+            return <MobilePhoneForm mobilePhone={mobilePhone} onUpdate={handleUpdate} manufacturers={manufacturers}/>
           }}/>
-          <Route exact path="/mobilephones/:id" render={(props) => {
+          <Route exact path="/api/mobilephones/:id" render={(props) => {
             const id = props.match.params.id;
             const mobilePhone = findMobilePhoneById(id);
-            return <MobilePhoneDetail mobilePhone={mobilePhone}/>
+            return <MobilePhoneDetail mobilePhone={mobilePhone} deletePhone={deletePhone}/>
           }}/>
           <Route render={() => {
             return <MobilePhoneList mobilePhones={mobilePhones}/>
           }}/>
           </Switch>
         </Fragment>
-      </Router>
     )
 }
 export default MobilePhoneContainer;

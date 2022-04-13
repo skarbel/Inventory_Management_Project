@@ -1,31 +1,101 @@
+.background {
+  background-color: rgb(110, 114, 110);
+  border: solid; 
+    border-color: transparent; 
+    overflow: scroll;
+}
+
+.container {
+  background-color: rgb(230, 235, 237);
+}
+
 .dropbtn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
+ background-color: #04AA6D;
+ color: white;
+ padding: 15px;
+ font-size: 16px;
+ border: none;
+}
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
+.backbtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
+.homebtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+.addbtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
 
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
+.savebtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+.editbtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+.deletebtn {
+  background-color: #04AA6D;
+ color: white;
+ font-size: 16px;
+ border: none;
+}
+
+.version {
+  font-size: 10px;
+  position: absolute;
+  bottom: 39%;
+  right: 40%;
+}
+
+/* .row {
+  font-size: 20px;
+} */
+
+ .search-bar {
+   background-color: #04AA6D;
+   padding: 12px;
+   padding-right: 740px;
+
+   /* border-radius: 300px; */
+ 
+ }
+
+ .dropdown {
+   position: relative;
+   display: inline-block;
+ }
+
+ .dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f1f1f1;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+ }
+
+ .dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+ }
 
 .dropdown-content a:hover {background-color: #ddd;}
 
@@ -33,4 +103,29 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+/* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
+
+/* .dropdown:hover .sortbtn {color: blue;} */
+
+
+
+.sortbtn {
+
+ padding: 16px;
+ font-size: 16px;
+ border: none;
+ min-width: 230px;
+ background-color: #f1f1f1;
+ text-align: left;
+}
+
+.sortbtn:hover  {  
+ background-color: #ddd;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* .tableRow:hover{
+ cursor:pointer;
+ background-color:gray;
+} */
