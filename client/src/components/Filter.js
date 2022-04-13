@@ -17,8 +17,6 @@ function Filter({handleChange})  {
     event.preventDefault();
   }
 
-  
-
   return (
     <form onSubmit={handleSubmit}>
       <input className='search-box'

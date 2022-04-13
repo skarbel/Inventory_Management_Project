@@ -76,6 +76,13 @@
  
  }
 
+ .search-bar::after {
+  content: '🔍';
+    position: absolute;
+    top: 15px;
+    right: 750px;
+}
+
  .dropdown {
    position: relative;
    display: inline-block;
